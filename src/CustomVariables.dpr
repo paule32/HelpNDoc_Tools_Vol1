@@ -2,7 +2,8 @@ program CustomVariables;
 
 uses
   Forms,
-  CustomVariablesForm in 'CustomVariablesForm.pas' {Form1};
+  CustomVariablesForm in 'CustomVariablesForm.pas' {Form1},
+  About in 'About.pas' {AboutDlg};
 
 {$R *.res}
 

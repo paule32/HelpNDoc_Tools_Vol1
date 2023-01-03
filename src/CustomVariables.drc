@@ -8,69 +8,73 @@
   resources were bound to the produced executable.
 */
 
-#define ExtCtrls_clName3DDkShadow 65264
-#define ExtCtrls_clName3DLight 65265
-#define ExtCtrls_clNameWindow 65266
-#define ExtCtrls_clNameWindowFrame 65267
-#define ExtCtrls_clNameWindowText 65268
-#define ComStrs_sTabFailClear 65269
-#define ComStrs_sTabFailDelete 65270
-#define ComStrs_sTabFailRetrieve 65271
-#define ComStrs_sTabFailGetObject 65272
-#define ComStrs_sTabFailSet 65273
-#define ComStrs_sTabFailSetObject 65274
-#define ComStrs_sTabMustBeMultiLine 65275
-#define ComStrs_sPageIndexError 65276
-#define ComStrs_sInvalidComCtl32 65277
-#define WinHelpViewer_hNoKeyword 65278
-#define ExtCtrls_clNameBtnShadow 65280
-#define ExtCtrls_clNameBtnText 65281
-#define ExtCtrls_clNameCaptionText 65282
-#define ExtCtrls_clNameDefault 65283
-#define ExtCtrls_clNameGrayText 65284
-#define ExtCtrls_clNameHighlight 65285
-#define ExtCtrls_clNameHighlightText 65286
-#define ExtCtrls_clNameInactiveBorder 65287
-#define ExtCtrls_clNameInactiveCaption 65288
-#define ExtCtrls_clNameInactiveCaptionText 65289
-#define ExtCtrls_clNameInfoBk 65290
-#define ExtCtrls_clNameInfoText 65291
-#define ExtCtrls_clNameMenu 65292
-#define ExtCtrls_clNameMenuText 65293
-#define ExtCtrls_clNameNone 65294
-#define ExtCtrls_clNameScrollBar 65295
-#define ExtCtrls_clNameLime 65296
-#define ExtCtrls_clNameYellow 65297
-#define ExtCtrls_clNameBlue 65298
-#define ExtCtrls_clNameFuchsia 65299
-#define ExtCtrls_clNameAqua 65300
-#define ExtCtrls_clNameWhite 65301
-#define ExtCtrls_clNameMoneyGreen 65302
-#define ExtCtrls_clNameSkyBlue 65303
-#define ExtCtrls_clNameCream 65304
-#define ExtCtrls_clNameMedGray 65305
-#define ExtCtrls_clNameActiveBorder 65306
-#define ExtCtrls_clNameActiveCaption 65307
-#define ExtCtrls_clNameAppWorkSpace 65308
-#define ExtCtrls_clNameBackground 65309
-#define ExtCtrls_clNameBtnFace 65310
-#define ExtCtrls_clNameBtnHighlight 65311
-#define Consts_SErrorSettingCount 65312
-#define Consts_SListBoxMustBeVirtual 65313
-#define HelpIntfs_hNoTableOfContents 65314
-#define HelpIntfs_hNothingFound 65315
-#define HelpIntfs_hNoContext 65316
-#define HelpIntfs_hNoTopics 65317
-#define ExtCtrls_clNameBlack 65318
-#define ExtCtrls_clNameMaroon 65319
-#define ExtCtrls_clNameGreen 65320
-#define ExtCtrls_clNameOlive 65321
-#define ExtCtrls_clNameNavy 65322
-#define ExtCtrls_clNamePurple 65323
-#define ExtCtrls_clNameTeal 65324
-#define ExtCtrls_clNameGray 65325
-#define ExtCtrls_clNameSilver 65326
-#define ExtCtrls_clNameRed 65327
+#define SQLite3Wrap_SErrorMessage 65248
+#define SQLite3Wrap_SDatabaseNotConnected 65249
+#define SQLite3Wrap_SNoTransactionOpen 65250
+#define ExtCtrls_clNameScrollBar 65264
+#define ExtCtrls_clName3DDkShadow 65265
+#define ExtCtrls_clName3DLight 65266
+#define ExtCtrls_clNameWindow 65267
+#define ExtCtrls_clNameWindowFrame 65268
+#define ExtCtrls_clNameWindowText 65269
+#define ComStrs_sTabFailClear 65270
+#define ComStrs_sTabFailDelete 65271
+#define ComStrs_sTabFailRetrieve 65272
+#define ComStrs_sTabFailGetObject 65273
+#define ComStrs_sTabFailSet 65274
+#define ComStrs_sTabFailSetObject 65275
+#define ComStrs_sTabMustBeMultiLine 65276
+#define ComStrs_sPageIndexError 65277
+#define ComStrs_sInvalidComCtl32 65278
+#define WinHelpViewer_hNoKeyword 65279
+#define ExtCtrls_clNameBtnHighlight 65280
+#define ExtCtrls_clNameBtnShadow 65281
+#define ExtCtrls_clNameBtnText 65282
+#define ExtCtrls_clNameCaptionText 65283
+#define ExtCtrls_clNameDefault 65284
+#define ExtCtrls_clNameGrayText 65285
+#define ExtCtrls_clNameHighlight 65286
+#define ExtCtrls_clNameHighlightText 65287
+#define ExtCtrls_clNameInactiveBorder 65288
+#define ExtCtrls_clNameInactiveCaption 65289
+#define ExtCtrls_clNameInactiveCaptionText 65290
+#define ExtCtrls_clNameInfoBk 65291
+#define ExtCtrls_clNameInfoText 65292
+#define ExtCtrls_clNameMenu 65293
+#define ExtCtrls_clNameMenuText 65294
+#define ExtCtrls_clNameNone 65295
+#define ExtCtrls_clNameRed 65296
+#define ExtCtrls_clNameLime 65297
+#define ExtCtrls_clNameYellow 65298
+#define ExtCtrls_clNameBlue 65299
+#define ExtCtrls_clNameFuchsia 65300
+#define ExtCtrls_clNameAqua 65301
+#define ExtCtrls_clNameWhite 65302
+#define ExtCtrls_clNameMoneyGreen 65303
+#define ExtCtrls_clNameSkyBlue 65304
+#define ExtCtrls_clNameCream 65305
+#define ExtCtrls_clNameMedGray 65306
+#define ExtCtrls_clNameActiveBorder 65307
+#define ExtCtrls_clNameActiveCaption 65308
+#define ExtCtrls_clNameAppWorkSpace 65309
+#define ExtCtrls_clNameBackground 65310
+#define ExtCtrls_clNameBtnFace 65311
+#define Consts_SDockZoneHasNoCtl 65312
+#define Consts_SErrorSettingCount 65313
+#define Consts_SListBoxMustBeVirtual 65314
+#define HelpIntfs_hNoTableOfContents 65315
+#define HelpIntfs_hNothingFound 65316
+#define HelpIntfs_hNoContext 65317
+#define HelpIntfs_hNoTopics 65318
+#define ExtCtrls_clNameBlack 65319
+#define ExtCtrls_clNameMaroon 65320
+#define ExtCtrls_clNameGreen 65321
+#define ExtCtrls_clNameOlive 65322
+#define ExtCtrls_clNameNavy 65323
+#define ExtCtrls_clNamePurple 65324
+#define ExtCtrls_clNameTeal 65325
+#define ExtCtrls_clNameGray 65326
+#define ExtCtrls_clNameSilver 65327
 #define Consts_SmkcUp 65328
 #define Consts_SmkcRight 65329
 #define Consts_SmkcDown 65330
@@ -81,12 +85,12 @@
 #define Consts_SmkcAlt 65335
 #define Consts_SInsertLineError 65336
 #define Consts_SIconToClipboard 65337
-#define Consts_SInvalidMemoSize 65338
-#define Consts_SDuplicateMenus 65339
-#define Consts_SDockedCtlNeedsName 65340
-#define Consts_SDockTreeRemoveError 65341
-#define Consts_SDockZoneNotFound 65342
-#define Consts_SDockZoneHasNoCtl 65343
+#define Consts_SCannotOpenClipboard 65338
+#define Consts_SInvalidMemoSize 65339
+#define Consts_SDuplicateMenus 65340
+#define Consts_SDockedCtlNeedsName 65341
+#define Consts_SDockTreeRemoveError 65342
+#define Consts_SDockZoneNotFound 65343
 #define Consts_SMsgDlgAbort 65344
 #define Consts_SMsgDlgRetry 65345
 #define Consts_SMsgDlgIgnore 65346
@@ -281,6 +285,10 @@
 #define SysConst_SOverflow 65535
 STRINGTABLE
 BEGIN
+	SQLite3Wrap_SErrorMessage,	"SQLite3 error: %s"
+	SQLite3Wrap_SDatabaseNotConnected,	"SQLite3 error: database is not connected."
+	SQLite3Wrap_SNoTransactionOpen,	"No transaction is open"
+	ExtCtrls_clNameScrollBar,	"Scroll Bar"
 	ExtCtrls_clName3DDkShadow,	"3D Dark Shadow"
 	ExtCtrls_clName3DLight,	"3D Light"
 	ExtCtrls_clNameWindow,	"Window Background"
@@ -296,6 +304,7 @@ BEGIN
 	ComStrs_sPageIndexError,	"%d is an invalid PageIndex value.  PageIndex must be between 0 and %d"
 	ComStrs_sInvalidComCtl32,	"This control requires version 4.70 or greater of COMCTL32.DLL"
 	WinHelpViewer_hNoKeyword,	"No help keyword specified."
+	ExtCtrls_clNameBtnHighlight,	"Button Highlight"
 	ExtCtrls_clNameBtnShadow,	"Button Shadow"
 	ExtCtrls_clNameBtnText,	"Button Text"
 	ExtCtrls_clNameCaptionText,	"Caption Text"
@@ -311,7 +320,7 @@ BEGIN
 	ExtCtrls_clNameMenu,	"Menu Background"
 	ExtCtrls_clNameMenuText,	"Menu Text"
 	ExtCtrls_clNameNone,	"None"
-	ExtCtrls_clNameScrollBar,	"Scroll Bar"
+	ExtCtrls_clNameRed,	"Red"
 	ExtCtrls_clNameLime,	"Lime"
 	ExtCtrls_clNameYellow,	"Yellow"
 	ExtCtrls_clNameBlue,	"Blue"
@@ -327,7 +336,7 @@ BEGIN
 	ExtCtrls_clNameAppWorkSpace,	"Application Workspace"
 	ExtCtrls_clNameBackground,	"Background"
 	ExtCtrls_clNameBtnFace,	"Button Face"
-	ExtCtrls_clNameBtnHighlight,	"Button Highlight"
+	Consts_SDockZoneHasNoCtl,	" - Dock zone has no control"
 	Consts_SErrorSettingCount,	"Error setting %s.Count"
 	Consts_SListBoxMustBeVirtual,	"Listbox (%s) style must be virtual in order to set Count"
 	HelpIntfs_hNoTableOfContents,	"Unable to find a Table of Contents"
@@ -343,7 +352,6 @@ BEGIN
 	ExtCtrls_clNameTeal,	"Teal"
 	ExtCtrls_clNameGray,	"Gray"
 	ExtCtrls_clNameSilver,	"Silver"
-	ExtCtrls_clNameRed,	"Red"
 	Consts_SmkcUp,	"Up"
 	Consts_SmkcRight,	"Right"
 	Consts_SmkcDown,	"Down"
@@ -354,12 +362,12 @@ BEGIN
 	Consts_SmkcAlt,	"Alt+"
 	Consts_SInsertLineError,	"Unable to insert a line"
 	Consts_SIconToClipboard,	"Clipboard does not support Icons"
+	Consts_SCannotOpenClipboard,	"Cannot open clipboard"
 	Consts_SInvalidMemoSize,	"Text exceeds memo capacity"
 	Consts_SDuplicateMenus,	"Menu '%s' is already being used by another form"
 	Consts_SDockedCtlNeedsName,	"Docked control must have a name"
 	Consts_SDockTreeRemoveError,	"Error removing control from dock tree"
 	Consts_SDockZoneNotFound,	" - Dock zone not found"
-	Consts_SDockZoneHasNoCtl,	" - Dock zone has no control"
 	Consts_SMsgDlgAbort,	"&Abort"
 	Consts_SMsgDlgRetry,	"&Retry"
 	Consts_SMsgDlgIgnore,	"&Ignore"

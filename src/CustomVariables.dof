@@ -94,7 +94,7 @@ OutputDir=E:\Projekte\BuchWerkstatt\HelpTools\out
 UnitOutputDir=E:\Projekte\BuchWerkstatt\HelpTools\dcu
 PackageDLLOutputDir=E:\Projekte\BuchWerkstatt\HelpTools\bpl
 PackageDCPOutputDir=E:\Projekte\BuchWerkstatt\HelpTools\dcp
-SearchPath=E:\Projekte\BuchWerkstatt\HelpTools
+SearchPath=E:\Projekte\BuchWerkstatt\HelpTools;E:\Projekte\BuchWerkstatt\HelpTools\SQLite3\Source
 Packages=vcl;rtl;vclx;inet;xmlrtl;vclie;inetdbbde;inetdbxpress;dbrtl;dsnap;dsnapcon;vcldb;soaprtl;VclSmp;dbexpress;dbxcds;inetdb;bdertl;vcldbx;webdsnap;websnap;adortl;ibxpress;teeui;teedb;tee;dss;visualclx;visualdbclx;vclactnband;vclshlctrls;IntrawebDB_50_70;Intraweb_50_70;Rave50CLX;Rave50VCL;dclOfficeXP;JvCore;JvSystem;JvStdCtrls;JvAppFrm;JvBands;JvDB;JvDlgs;JvBDE;JvControls;JvCmp;JvCrypt;JvCustom;JvDocking;JvDotNetCtrls;JvGlobus;JvHMI;JvJans;JvManagedThreads;JvMM;JvNet;JvPageComps;JvPascalInterpreter;JvPluginSystem;JvPrintPreview;JvRuntimeDesign;JvTimeFramework;JvWizards;JvXPCtrls;qrpt;CEF4Delphi_D7;kallupDesignDelphi7;madBasic_;madDisAsm_;madExcept_;Package1;vc2;kbmMemD7Run;lmdrtl;lmdrtcore;lmdrtbar;lmdrtchart;lmdrtchartdb;lmdrtdesign;lmdrtdialog;lmdrtdocking;lmdrtelcore;lmdrteldb;lmdrtelpro;lmdrtfx;lmdrtgrid;lmdrtide;lmdrtinspector;lmdrtplugin;lmdrtprint;lmdrtrtf;lmdrtrtfdb;lmdrtrtlx;lmdrtscript;lmdrtscriptimp;lmdrtsearchdb;lmdrtsearch;lmdrtshell;lmdrtstorage;lmdrtsyntax;lmdrtsys;lmdrtthemes;lmdrttools;lmdrttoolsdb;lmdrttxt;lmdrttxtdb;lmdrtweb
 Conditionals=
 DebugSourceDirs=
@@ -139,8 +139,9 @@ SpecialBuild=
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=1
-Item0=E:\Projekte\BuchWerkstatt\HelpTools
+Count=2
+Item0=E:\Projekte\BuchWerkstatt\HelpTools;E:\Projekte\BuchWerkstatt\HelpTools\SQLite3\Source
+Item1=E:\Projekte\BuchWerkstatt\HelpTools
 [HistoryLists\hlUnitOutputDirectory]
 Count=1
 Item0=E:\Projekte\BuchWerkstatt\HelpTools\dcu

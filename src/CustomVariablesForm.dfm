@@ -11,7 +11,8 @@ object Form1: TForm1
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
-  OnResize = FormResize
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object Splitter1: TSplitter
@@ -83,7 +84,7 @@ object Form1: TForm1
       Height = 27
       Align = alClient
       TabOrder = 0
-      object SpeedButton1: TSpeedButton
+      object spButtonFile___: TSpeedButton
         Left = 1
         Top = 1
         Width = 49
@@ -96,9 +97,9 @@ object Form1: TForm1
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        OnClick = SpeedButton1Click
+        OnClick = spButtonFile___Click
       end
-      object SpeedButton2: TSpeedButton
+      object spButtonEdit___: TSpeedButton
         Left = 49
         Top = 1
         Width = 49
@@ -111,13 +112,28 @@ object Form1: TForm1
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        OnClick = SpeedButton2Click
+        OnClick = spButtonEdit___Click
       end
-      object SpeedButton3: TSpeedButton
+      object spButtonAction_: TSpeedButton
         Left = 97
         Top = 1
-        Width = 49
+        Width = 56
         Height = 25
+        Caption = 'Action'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = spButtonAction_Click
+      end
+      object spButtonHelp___: TSpeedButton
+        Left = 152
+        Top = 2
+        Width = 53
+        Height = 24
         Caption = 'Help'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -126,6 +142,7 @@ object Form1: TForm1
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
+        OnClick = spButtonHelp___Click
       end
     end
     object Panel2: TPanel
@@ -1098,7 +1115,7 @@ object Form1: TForm1
           Left = 8
           Top = 24
           Width = 185
-          Height = 22
+          Height = 21
           TabOrder = 0
         end
         object ComboBox1: TComboBox
@@ -1446,10 +1463,12 @@ object Form1: TForm1
     Top = 40
     object New1: TMenuItem
       Caption = 'New'
+      OnClick = New1Click
     end
     object Open1: TMenuItem
       Caption = 'Open ...'
       ShortCut = 16463
+      OnClick = Open1Click
     end
     object N1: TMenuItem
       Caption = '-'
@@ -1464,8 +1483,9 @@ object Form1: TForm1
     object N2: TMenuItem
       Caption = '-'
     end
-    object Exit1: TMenuItem
+    object MenuFile_ExitApplication: TMenuItem
       Caption = 'Exit'
+      OnClick = MenuFile_ExitApplicationClick
     end
   end
   object EditPopupMenu: TPopupMenu
@@ -1497,5 +1517,40 @@ object Form1: TForm1
     object Delete1: TMenuItem
       Caption = 'Delete'
     end
+  end
+  object ActionPopupMenu: TPopupMenu
+    Left = 265
+    Top = 41
+    object PackTable: TMenuItem
+      Caption = 'Table Pack'
+      OnClick = PackTableClick
+    end
+    object ZipTable: TMenuItem
+      Caption = 'Table Zip / Delete'
+      OnClick = ZipTableClick
+    end
+    object N5: TMenuItem
+      Caption = '-'
+    end
+    object DbReBase: TMenuItem
+      Caption = 'DB ReBase'
+      OnClick = DbReBaseClick
+    end
+    object DbDelete: TMenuItem
+      Caption = 'DB Delete'
+      OnClick = DbDeleteClick
+    end
+  end
+  object HelpPopupMenu: TPopupMenu
+    Left = 297
+    Top = 41
+    object About1: TMenuItem
+      Caption = 'About ...'
+      OnClick = About1Click
+    end
+  end
+  object DbOpenDialog: TOpenDialog
+    Left = 329
+    Top = 41
   end
 end
