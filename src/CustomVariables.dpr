@@ -3,7 +3,8 @@ program CustomVariables;
 uses
   Forms,
   CustomVariablesForm in 'CustomVariablesForm.pas' {Form1},
-  About in 'About.pas' {AboutDlg};
+  About in 'About.pas' {AboutDlg},
+  Preferences in 'Preferences.pas' {PreferDialog};
 
 {$R *.res}
 

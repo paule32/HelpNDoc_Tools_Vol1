@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 205
-  Top = 103
-  Width = 669
+  Left = 149
+  Top = 116
+  Width = 734
   Height = 519
   Caption = 'HelpNDoc Authoring Help Tools (c) 2023 Jens Kallup'
   Color = clBtnFace
@@ -18,18 +18,18 @@ object Form1: TForm1
   object Splitter1: TSplitter
     Left = 0
     Top = 394
-    Width = 653
+    Width = 718
     Height = 3
     Cursor = crVSplit
     Align = alBottom
   end
   object Splitter2: TSplitter
-    Left = 169
+    Left = 193
     Top = 79
     Height = 315
   end
   object Splitter3: TSplitter
-    Left = 472
+    Left = 537
     Top = 79
     Height = 315
     Align = alRight
@@ -37,14 +37,14 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Top = 461
-    Width = 653
+    Width = 718
     Height = 19
     Panels = <>
   end
   object ListBox1: TListBox
     Left = 0
     Top = 397
-    Width = 653
+    Width = 718
     Height = 64
     Align = alBottom
     Constraints.MinHeight = 64
@@ -54,7 +54,7 @@ object Form1: TForm1
   object CoolBar1: TCoolBar
     Left = 0
     Top = 0
-    Width = 653
+    Width = 718
     Height = 79
     BandBorderStyle = bsNone
     Bands = <
@@ -62,7 +62,7 @@ object Form1: TForm1
         Control = Panel1
         ImageIndex = -1
         MinHeight = 27
-        Width = 649
+        Width = 714
       end
       item
         Control = Panel2
@@ -75,12 +75,12 @@ object Form1: TForm1
         Control = Panel3
         ImageIndex = -1
         MinHeight = 46
-        Width = 189
+        Width = 254
       end>
     object Panel1: TPanel
       Left = 9
       Top = 0
-      Width = 636
+      Width = 701
       Height = 27
       Align = alClient
       TabOrder = 0
@@ -174,7 +174,7 @@ object Form1: TForm1
     object Panel3: TPanel
       Left = 469
       Top = 27
-      Width = 176
+      Width = 241
       Height = 46
       Align = alLeft
       TabOrder = 2
@@ -1057,12 +1057,12 @@ object Form1: TForm1
       end
     end
   end
-  object PageControl1: TPageControl
-    Left = 172
+  object cvPageControl: TPageControl
+    Left = 196
     Top = 79
-    Width = 300
+    Width = 341
     Height = 315
-    ActivePage = TabSheet1
+    ActivePage = cvTabColor
     Align = alClient
     Constraints.MinHeight = 200
     Constraints.MinWidth = 300
@@ -1072,7 +1072,7 @@ object Form1: TForm1
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 292
+        Width = 333
         Height = 287
         Align = alClient
         TabOrder = 0
@@ -1111,14 +1111,14 @@ object Form1: TForm1
           Height = 13
           Caption = 'Translation:'
         end
-        object Edit1: TEdit
+        object EditID: TEdit
           Left = 8
           Top = 24
           Width = 185
           Height = 21
           TabOrder = 0
         end
-        object ComboBox1: TComboBox
+        object varTypeCB: TComboBox
           Left = 208
           Top = 24
           Width = 73
@@ -1133,14 +1133,14 @@ object Form1: TForm1
             'Enum'
             'Color')
         end
-        object Edit2: TEdit
+        object EditName: TEdit
           Left = 8
           Top = 64
           Width = 185
           Height = 21
           TabOrder = 2
         end
-        object Edit3: TEdit
+        object EditDesc: TEdit
           Left = 8
           Top = 104
           Width = 185
@@ -1177,14 +1177,14 @@ object Form1: TForm1
                 Height = 13
                 Caption = 'Description:'
               end
-              object Edit7: TEdit
+              object EditNameDEU: TEdit
                 Left = 8
                 Top = 19
                 Width = 185
                 Height = 21
                 TabOrder = 0
               end
-              object Edit8: TEdit
+              object EditDescDEU: TEdit
                 Left = 8
                 Top = 60
                 Width = 185
@@ -1217,14 +1217,14 @@ object Form1: TForm1
                 Height = 13
                 Caption = 'Description:'
               end
-              object Edit9: TEdit
+              object EditNameFRA: TEdit
                 Left = 8
                 Top = 19
                 Width = 185
                 Height = 21
                 TabOrder = 0
               end
-              object Edit10: TEdit
+              object EditDescFRA: TEdit
                 Left = 8
                 Top = 60
                 Width = 185
@@ -1257,14 +1257,14 @@ object Form1: TForm1
                 Height = 13
                 Caption = 'Description:'
               end
-              object Edit5: TEdit
+              object EditNameSPA: TEdit
                 Left = 8
                 Top = 19
                 Width = 185
                 Height = 21
                 TabOrder = 0
               end
-              object Edit6: TEdit
+              object EditDescSPA: TEdit
                 Left = 8
                 Top = 60
                 Width = 185
@@ -1274,15 +1274,34 @@ object Form1: TForm1
             end
           end
         end
+        object SaveBtn: TButton
+          Left = 208
+          Top = 64
+          Width = 75
+          Height = 25
+          Caption = 'Save'
+          TabOrder = 5
+          OnClick = SaveBtnClick
+        end
+        object DeleteBtn: TButton
+          Left = 208
+          Top = 112
+          Width = 75
+          Height = 25
+          Caption = 'Delete'
+          TabOrder = 6
+          OnClick = DeleteBtnClick
+        end
       end
     end
-    object TabSheet2: TTabSheet
-      Caption = 'Value:'
+    object cvTabString: TTabSheet
+      Caption = 'String'
+      Enabled = False
       ImageIndex = 1
       object ScrollBox2: TScrollBox
         Left = 0
         Top = 0
-        Width = 292
+        Width = 333
         Height = 287
         Align = alClient
         TabOrder = 0
@@ -1302,13 +1321,14 @@ object Form1: TForm1
         end
       end
     end
-    object TabSheet6: TTabSheet
-      Caption = 'Value:'
+    object cvTabMemo: TTabSheet
+      Caption = 'Memo'
+      Enabled = False
       ImageIndex = 2
       object ScrollBox6: TScrollBox
         Left = 0
         Top = 0
-        Width = 292
+        Width = 333
         Height = 287
         Align = alClient
         TabOrder = 0
@@ -1319,7 +1339,7 @@ object Form1: TForm1
           Height = 13
           Caption = 'Memo:'
         end
-        object Memo1: TMemo
+        object MemoBox: TMemo
           Left = 8
           Top = 24
           Width = 265
@@ -1366,13 +1386,14 @@ object Form1: TForm1
         end
       end
     end
-    object TabSheet7: TTabSheet
-      Caption = 'Value:'
+    object cvTabEnum: TTabSheet
+      Caption = 'Enum'
+      Enabled = False
       ImageIndex = 3
       object ScrollBox7: TScrollBox
         Left = 0
         Top = 0
-        Width = 292
+        Width = 333
         Height = 287
         Align = alClient
         TabOrder = 0
@@ -1392,9 +1413,67 @@ object Form1: TForm1
         end
       end
     end
+    object cvTabBoolean: TTabSheet
+      Caption = 'Boolean'
+      ImageIndex = 4
+    end
+    object cvTabColor: TTabSheet
+      Caption = 'Color'
+      ImageIndex = 5
+      object ScrollBox10: TScrollBox
+        Left = 0
+        Top = 0
+        Width = 333
+        Height = 287
+        Align = alClient
+        TabOrder = 0
+        object JvOfficeColorPanel1: TJvOfficeColorPanel
+          Left = 0
+          Top = 8
+          Width = 152
+          Height = 162
+          SelectedColor = clDefault
+          HotTrackFont.Charset = DEFAULT_CHARSET
+          HotTrackFont.Color = clWindowText
+          HotTrackFont.Height = -11
+          HotTrackFont.Name = 'MS Sans Serif'
+          HotTrackFont.Style = []
+          TabOrder = 0
+          Properties.NoneColorCaption = 'No Color'
+          Properties.DefaultColorCaption = 'Automatic'
+          Properties.CustomColorCaption = 'Other Colors...'
+          Properties.NoneColorHint = 'No Color'
+          Properties.DefaultColorHint = 'Automatic'
+          Properties.CustomColorHint = 'Other Colors...'
+          Properties.NoneColorFont.Charset = DEFAULT_CHARSET
+          Properties.NoneColorFont.Color = clWindowText
+          Properties.NoneColorFont.Height = -11
+          Properties.NoneColorFont.Name = 'MS Sans Serif'
+          Properties.NoneColorFont.Style = []
+          Properties.DefaultColorFont.Charset = DEFAULT_CHARSET
+          Properties.DefaultColorFont.Color = clWindowText
+          Properties.DefaultColorFont.Height = -11
+          Properties.DefaultColorFont.Name = 'MS Sans Serif'
+          Properties.DefaultColorFont.Style = []
+          Properties.CustomColorFont.Charset = DEFAULT_CHARSET
+          Properties.CustomColorFont.Color = clWindowText
+          Properties.CustomColorFont.Height = -11
+          Properties.CustomColorFont.Name = 'MS Sans Serif'
+          Properties.CustomColorFont.Style = []
+          OnColorButtonClick = JvOfficeColorPanel1ColorButtonClick
+        end
+        object ColorMaskEdit: TMaskEdit
+          Left = 168
+          Top = 8
+          Width = 121
+          Height = 21
+          TabOrder = 1
+        end
+      end
+    end
   end
   object PageControl2: TPageControl
-    Left = 475
+    Left = 540
     Top = 79
     Width = 178
     Height = 315
@@ -1428,32 +1507,40 @@ object Form1: TForm1
   object TreeView1: TPageControl
     Left = 0
     Top = 79
-    Width = 169
+    Width = 193
     Height = 315
     ActivePage = TabSheet10
     Align = alLeft
     Constraints.MinWidth = 130
     TabOrder = 3
     object TabSheet10: TTabSheet
-      Caption = 'Files'
-      object ScrollBox11: TScrollBox
+      Caption = 'Types'
+      object TypesGrid: TStringGrid
         Left = 0
         Top = 0
-        Width = 161
+        Width = 185
         Height = 287
         Align = alClient
+        Color = clSilver
+        ColCount = 3
+        DefaultRowHeight = 21
+        RowCount = 2
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing]
         TabOrder = 0
+        OnDrawCell = TypesGridDrawCell
+        OnSelectCell = TypesGridSelectCell
       end
     end
     object TabSheet11: TTabSheet
       Caption = 'Topics'
       ImageIndex = 1
-      object ScrollBox10: TScrollBox
+      object TreeView2: TTreeView
         Left = 0
         Top = 0
-        Width = 161
+        Width = 185
         Height = 287
         Align = alClient
+        Indent = 19
         TabOrder = 0
       end
     end
@@ -1516,6 +1603,13 @@ object Form1: TForm1
     end
     object Delete1: TMenuItem
       Caption = 'Delete'
+    end
+    object N6: TMenuItem
+      Caption = '-'
+    end
+    object Preferences1: TMenuItem
+      Caption = 'Preferences'
+      OnClick = Preferences1Click
     end
   end
   object ActionPopupMenu: TPopupMenu
