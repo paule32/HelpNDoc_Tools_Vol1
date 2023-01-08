@@ -11,7 +11,7 @@ uses
   SynHighlighterCSS, JvGradientCaption, JvComponentBase, JvComCtrls,
   JvExComCtrls, ImgList, JvExButtons, JvBitBtn, JvExStdCtrls, JvListBox,
   JvExControls, JvArrowButton, JvCaptionButton, MyHintWindow, Dialogs,
-  JvAppEvent;
+  JvAppEvent, JvExGrids, JvStringGrid, JvBalloonHint, JvMenus;
 
 type
   TForm1 = class(TForm)
@@ -26,24 +26,6 @@ type
     SpeedButton4: TSpeedButton;
     SaveBtn: TSpeedButton;
     SpeedButton6: TSpeedButton;
-    Panel3: TPanel;
-    FilePopupMenu: TPopupMenu;
-    New1: TMenuItem;
-    Open1: TMenuItem;
-    N1: TMenuItem;
-    Save1: TMenuItem;
-    SaveAs1: TMenuItem;
-    N2: TMenuItem;
-    MenuFile_ExitApplication: TMenuItem;
-    EditPopupMenu: TPopupMenu;
-    Copy1: TMenuItem;
-    Cut1: TMenuItem;
-    Paste1: TMenuItem;
-    N3: TMenuItem;
-    Delete1: TMenuItem;
-    Undo1: TMenuItem;
-    Redo1: TMenuItem;
-    N4: TMenuItem;
     Splitter1: TSplitter;
     Splitter3: TSplitter;
     PageControl2: TPageControl;
@@ -51,17 +33,7 @@ type
     TabSheet9: TTabSheet;
     ScrollBox8: TScrollBox;
     spButtonHelp___: TSpeedButton;
-    ActionPopupMenu: TPopupMenu;
-    PackTable: TMenuItem;
-    DbReBase: TMenuItem;
-    DbDelete: TMenuItem;
-    ZipTable: TMenuItem;
-    N5: TMenuItem;
-    HelpPopupMenu: TPopupMenu;
-    About1: TMenuItem;
     DbOpenDialog: TOpenDialog;
-    N6: TMenuItem;
-    Preferences1: TMenuItem;
     TreeView2: TTreeView;
     SynCssSyn1: TSynCssSyn;
     SynHTMLSyn1: TSynHTMLSyn;
@@ -73,7 +45,7 @@ type
     TabSheet1: TTabSheet;
     ScrollBox1: TScrollBox;
     Splitter4: TSplitter;
-    TreeView1: TPageControl;
+    projectPageControl: TPageControl;
     TabSheet10: TTabSheet;
     TypesGrid: TStringGrid;
     cvPageControl: TPageControl;
@@ -128,8 +100,8 @@ type
     cvTabEnum: TTabSheet;
     ScrollBox10: TScrollBox;
     Label14: TLabel;
-    JvArrowButton2: TJvArrowButton;
-    JvArrowButton3: TJvArrowButton;
+    enumButtonLoad: TJvArrowButton;
+    enumButtonSave: TJvArrowButton;
     Label32: TLabel;
     Label33: TLabel;
     Label34: TLabel;
@@ -262,13 +234,75 @@ type
     Button31: TButton;
     Button32: TButton;
     EnumAddButton: TButton;
-    Button34: TButton;
-    PopupMenu1: TPopupMenu;
-    dummy1: TMenuItem;
+    enumDeleteButton: TButton;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     HintTimer: TTimer;
     JvAppEvents1: TJvAppEvents;
+    Panel3: TPanel;
+    TabSheet21: TTabSheet;
+    projectsGrid: TJvStringGrid;
+    JvBalloonHint1: TJvBalloonHint;
+    JvOfficeMenuItemPainter1: TJvOfficeMenuItemPainter;
+    FilePopupMenu: TJvPopupMenu;
+    EditPopupMenu: TJvPopupMenu;
+    ActionPopupMenu: TJvPopupMenu;
+    HelpPopupMenu: TJvPopupMenu;
+    New: TMenuItem;
+    Open: TMenuItem;
+    N7: TMenuItem;
+    Save: TMenuItem;
+    SaveAs: TMenuItem;
+    N8: TMenuItem;
+    MenuFile_ExitApplication: TMenuItem;
+    Copy1: TMenuItem;
+    Cut1: TMenuItem;
+    Paste1: TMenuItem;
+    N1: TMenuItem;
+    Undo1: TMenuItem;
+    Redo1: TMenuItem;
+    N2: TMenuItem;
+    Delete1: TMenuItem;
+    N3: TMenuItem;
+    Preferences1: TMenuItem;
+    PackTable1: TMenuItem;
+    ZipTable1: TMenuItem;
+    N4: TMenuItem;
+    DbReBase1: TMenuItem;
+    DbDelete1: TMenuItem;
+    About1: TMenuItem;
+    PopupMenu1: TPopupMenu;
+    enumPopupLoad: TJvPopupMenu;
+    enumPopupSave: TJvPopupMenu;
+    varButtonAdd: TButton;
+    varButtonDelete: TButton;
+    TabSheet22: TTabSheet;
+    ScrollBox22: TScrollBox;
+    SpeedButton3: TSpeedButton;
+    Label35: TLabel;
+    Edit1: TEdit;
+    Label36: TLabel;
+    Edit2: TEdit;
+    Label37: TLabel;
+    Edit3: TEdit;
+    Label38: TLabel;
+    Edit4: TEdit;
+    Label39: TLabel;
+    Edit5: TEdit;
+    Label40: TLabel;
+    Edit6: TEdit;
+    Label41: TLabel;
+    Edit7: TEdit;
+    Memo1: TMemo;
+    Label42: TLabel;
+    Image1: TImage;
+    projectsPopupMenu: TJvPopupMenu;
+    OpenexistingProject1: TMenuItem;
+    CreatenewProject1: TMenuItem;
+    N5: TMenuItem;
+    DeleteProjectItem1: TMenuItem;
+    projectOutput: TStringGrid;
+    Label43: TLabel;
     procedure spButtonFile___Click(Sender: TObject);
     procedure spButtonEdit___Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -323,6 +357,16 @@ type
     procedure enumButtonClearClick(Sender: TObject);
     procedure HintTimerTimer(Sender: TObject);
     procedure JvAppEvents1Hint(Sender: TObject);
+    procedure enumDeleteButtonClick(Sender: TObject);
+    procedure enumButtonLoadClick(Sender: TObject);
+    procedure enumButtonSaveClick(Sender: TObject);
+    procedure varButtonAddClick(Sender: TObject);
+    procedure varButtonDeleteClick(Sender: TObject);
+    procedure projectsGridDrawCell(Sender: TObject; ACol, ARow: Integer;
+      Rect: TRect; State: TGridDrawState);
+    procedure projectPageControlChange(Sender: TObject);
+    procedure projectsGridDblClick(Sender: TObject);
+    procedure cvPageControlChange(Sender: TObject);
   private
     DB   : TSQLite3Database;
     Stmt : TSQLite3Statement;
@@ -334,6 +378,7 @@ type
     ApplicationBalloonHint: TMyHintWindow;
 
     function  CheckOpenTrue(dlg: TOpenDialog; flag: Byte): Boolean;
+    procedure addPopupMenu(menuObject: TJvPopupMenu);
     procedure DeleteRow(ARow: Integer);
     procedure HideCvPageTabSheets;
     procedure PopMenu(Actor: TPopupMenu);
@@ -416,7 +461,12 @@ begin
   ApplicationBalloonHint := TMyHintWindow.Create(Form1);
   ApplicationBalloonHint.Parent := Form1;
 
+  projectPageControl.ActivePageIndex   := 0;
+  projectPageControl.Pages[1].TabVisible := false;
+
   HideCvPageTabSheets;
+  cvPageControl.Pages[0].TabVisible := true;
+  cvPageControl.Pages[0].Enabled := true;
 
   with TypesGrid do
   begin
@@ -751,7 +801,7 @@ end;
 procedure TForm1.HideCvPageTabSheets;
 var i : Integer;
 begin
-  for i := 1 to 5 do
+  for i := 0 to cvPageControl.PageCount - 1 do
   begin
     cvPageControl.Pages[i].Enabled    := false;
     cvPageControl.Pages[i].Visible    := false;
@@ -762,11 +812,14 @@ procedure TForm1.ShowCvPageTabSheet(name: TComponentName);
 var i : Integer;
 begin
   HideCvPageTabSheets;
-  for i := 1 to 5 do
+  for i := 0 to cvPageControl.PageCount - 1 do
   begin
     if cvPageControl.Pages[i].Name = name then
     begin
-//    showmessage(name + ' : ' + cvPageControl.Pages[i].Name);
+      cvPageControl.Pages[1].TabVisible := true;
+      cvPageControl.Pages[1].Visible    := true;
+      cvPageControl.Pages[1].Enabled    := true;
+
       cvPageControl.Pages[i].TabVisible := true;
       cvPageControl.Pages[i].Visible    := true;
       cvPageControl.Pages[i].Enabled    := true;
@@ -852,14 +905,32 @@ begin
   ShellExecute(0, 'open', PChar(URL), nil, nil, SW_SHOWNORMAL);
 end;
 
-procedure TForm1.JvBitBtn2Click(Sender: TObject); begin varEnumListBox.MoveSelectedUp;   end;
-procedure TForm1.JvBitBtn1Click(Sender: TObject); begin varEnumListBox.MoveSelectedDown; end;
+procedure TForm1.JvBitBtn2Click(Sender: TObject);
+begin
+  if varEnumListBox.Items.Count < 1 then
+  begin
+    varEnumListBox.Color := clWhite;
+    exit;
+  end;
+  varEnumListBox.Color := clYellow;
+  varEnumListBox.MoveSelectedUp;
+end;
+procedure TForm1.JvBitBtn1Click(Sender: TObject);
+begin
+  if varEnumListBox.Items.Count < 1 then
+  begin
+    varEnumListBox.Color := clWhite;
+    exit;
+  end;
+  varEnumListBox.Color := clYellow;
+  varEnumListBox.MoveSelectedDown;
+end;
 
 procedure TForm1.editOnEnter(Sender: TObject); begin (Sender as TEdit).Color := clYellow; end;
 procedure TForm1.editOnExit (Sender: TObject); begin (Sender as TEdit).Color := clWhite;  end;
 procedure TForm1.editOnKeyPress(Sender: TObject; var Key: Char);
 begin
-  if not (key in ['a'..'z','A'..'Z','0'..'9','_',Chr(127),Chr($8)]) then
+  if not (key in ['a'..'z','A'..'Z','0'..'9','_',' ',Chr(127),Chr($8)]) then
   key := #0;
 end;
 
@@ -1007,6 +1078,7 @@ begin
     end;
   end;
 
+  varEnumListBox.Color := clYellow;
   varEnumListBox.Items.Add(
   Trim(defaultEnum     .Text) + '=' +
   Trim(defaultEnumValue.Text));
@@ -1026,6 +1098,7 @@ begin
   end;
 
   varEnumListBox.Items.Clear;
+  varEnumListBox.Color := clWhite;
 
   defaultEnum.Text := '';
   defaultEnumValue.Text := '';
@@ -1043,66 +1116,125 @@ begin
 end;
 
 procedure TForm1.JvAppEvents1Hint(Sender: TObject);
-var
-  pt: TPoint;
 begin
-  pt := SpeedButton1.ScreenToClient(Mouse.CursorPos);
-  if PtInRect(SpeedButton1.ClientRect,pt) then
+  JvBalloonHint1.UseBalloonAsApplicationHint := true;
+end;
+
+procedure TForm1.enumDeleteButtonClick(Sender: TObject);
+begin
+  if varEnumListBox.Items.Count > 0 then
   begin
-    with ApplicationBalloonHint do
-    begin
-      Caption     := SpeedButton1.Name;
-      Description := SpeedButton1.Hint;
-      ShowHint(Mouse.CursorPos);
-    end;
+    if Application.MessageBox(PChar(
+    'Warning' + #13#10 +
+    'Would you delete the current item ?'),PChar(
+    'Warning'),MB_YESNO) = ID_NO then
+    exit;
+
+    varEnumListBox.DeleteSelected;
+    varEnumListBox.SetFocus;
+
+    if varEnumListBox.Items.Count < 1 then
+    varEnumListBox.Color := clWhite;
+  end;
+end;
+
+procedure TForm1.addPopupMenu(menuObject: TJvPopupMenu);
+var
+  menuItem: TMenuItem;
+begin
+  if not DbOpenDialog.Execute then
+  begin
+    Application.MessageBox  (PChar(
+    'something went wrong.'),PChar(
+    'Error'),MB_OK);
+    exit;
   end;
 
-  pt := SpeedButton2.ScreenToClient(Mouse.CursorPos);
-  if PtInRect(SpeedButton2.ClientRect,pt) then
+  menuItem := TMenuItem.Create(menuObject);
+  menuItem.Caption := DbOpenDialog.FileName;
+  menuObject.Items.Add(menuItem);
+end;
+
+procedure TForm1.enumButtonLoadClick(Sender: TObject); begin addPopupMenu(enumPopupLoad); end;
+procedure TForm1.enumButtonSaveClick(Sender: TObject); begin addPopupMenu(enumPopupSave); end;
+
+procedure TForm1.varButtonAddClick(Sender: TObject);
+begin
+  SaveBtnClick(Sender);
+end;
+
+procedure TForm1.varButtonDeleteClick(Sender: TObject);
+begin
+//
+end;
+
+procedure TForm1.projectsGridDrawCell(
+  Sender: TObject; ACol,
+  ARow  : Integer;
+  Rect  : TRect;
+  State : TGridDrawState);
+var
+  aCanvas: TCanvas;
+begin
+  if ARow >= 0 then
   begin
-    with ApplicationBalloonHint do
-    begin
-      Caption     := SpeedButton2.Name;
-      Description := SpeedButton2.Hint;
-      ShowHint(Mouse.CursorPos);
-    end;
-  end;
+    aCanvas := (Sender as TJvStringGrid).Canvas;
 
-  pt := SpeedButton4.ScreenToClient(Mouse.CursorPos);
-  if PtInRect(SpeedButton4.ClientRect,pt) then
+    if gdFocused in State then
+    aCanvas.Brush.Color := clBlue else
+    aCanvas.Brush.Color := clWhite;
+
+    aCanvas.FillRect(Rect);
+    ImageList1.Draw(aCanvas,Rect.Left,Rect.Top+4,0);
+
+    if gdFocused in State then
+    aCanvas.Font.Color := clYellow else
+    aCanvas.Font.Color := clBlack;
+    aCanvas.Font.Size  := 11;
+    aCanvas.Font.Style := [fsBold];
+    aCanvas.TextOut(Rect.Left+42,Rect.Top+4,'Project ' + IntToStr(ARow+1));
+
+    if gdFocused in State then
+    aCanvas.Font.Color := clWhite else
+    aCanvas.Font.Color := clGray;
+    aCanvas.Font.Size  := 9;
+    aCanvas.Font.Style := [];
+    aCanvas.TextOut(Rect.Left+42,Rect.Top+23,'C:\Example\test');
+  end;
+end;
+
+procedure TForm1.projectPageControlChange(Sender: TObject);
+var
+  i: Integer;
+begin
+  for i := 0 to cvPageControl.PageCount - 1 do
+  cvPageControl.Pages[i].TabVisible := false;
+
+  if projectPageControl.ActivePageIndex = 0 then
   begin
-    with ApplicationBalloonHint do
-    begin
-      Caption     := SpeedButton4.Name;
-      Description := SpeedButton4.Hint;
-      ShowHint(Mouse.CursorPos);
-    end;
-  end;
-
-  pt := SaveBtn.ScreenToClient(Mouse.CursorPos);
-  if PtInRect(SaveBtn.ClientRect,pt) then
+    cvPageControl.Pages[0].TabVisible := true;
+    cvPageControl.Pages[0].Enabled    := true;
+  end else
   begin
-    with ApplicationBalloonHint do
-    begin
-      Caption     := SaveBtn.Name;
-      Description := SaveBtn.Hint;
-      ShowHint(Mouse.CursorPos);
-    end;
+    cvPageControl.Pages[1].TabVisible := true ;
+    cvPageControl.Pages[1].Enabled    := true;
   end;
+end;
 
-  pt := SpeedButton6.ScreenToClient(Mouse.CursorPos);
-  if PtInRect(SpeedButton6.ClientRect,pt) then
-  begin
-    with ApplicationBalloonHint do
-    begin
-      Caption     := SpeedButton6.Name;
-      Description := SpeedButton6.Hint;
-      ShowHint(Mouse.CursorPos);
-    end;
-  end;
+procedure TForm1.projectsGridDblClick(Sender: TObject);
+begin
+  projectPageControl.Pages[1].TabVisible := true;
+  projectPageControl.ActivePageIndex := 1;
 
+  cvPageControl.Pages[0].TabVisible := false;
+  cvPageControl.Pages[1].TabVisible := true;
+  cvPageControl.Pages[1].Enabled    := true;
+end;
 
-  HintTimer.Enabled := true;
+procedure TForm1.cvPageControlChange(Sender: TObject);
+begin
+  if cvPageControl.ActivePageIndex = 1 then
+     cvPageControl.Enabled   := true;
 end;
 
 end.

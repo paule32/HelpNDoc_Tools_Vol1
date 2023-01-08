@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 129
-  Top = 51
+  Left = 136
+  Top = 53
   Width = 815
   Height = 571
   Caption = 'HelpNDoc Authoring Help Tools (c) 2023 Jens Kallup'
@@ -63,18 +63,8 @@ object Form1: TForm1
         Control = Panel2
         ImageIndex = -1
         MinHeight = 47
-        Width = 725
-      end
-      item
-        Break = False
-        Control = Panel3
-        ImageIndex = -1
-        MinHeight = 46
-        Width = 70
+        Width = 795
       end>
-    DesignSize = (
-      795
-      75)
     object Panel1: TPanel
       Left = 9
       Top = 0
@@ -146,9 +136,9 @@ object Form1: TForm1
     object Panel2: TPanel
       Left = 9
       Top = 27
-      Width = 712
+      Width = 782
       Height = 47
-      Anchors = [akLeft, akTop, akRight]
+      Align = alLeft
       BevelOuter = bvNone
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -296,9 +286,11 @@ object Form1: TForm1
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFF}
         Layout = blGlyphTop
+        ParentShowHint = False
+        ShowHint = True
       end
       object SaveBtn: TSpeedButton
-        Left = 41
+        Left = 81
         Top = 4
         Width = 40
         Height = 40
@@ -435,10 +427,12 @@ object Form1: TForm1
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFF}
+        ParentShowHint = False
+        ShowHint = True
         OnClick = SaveBtnClick
       end
       object SpeedButton6: TSpeedButton
-        Left = 81
+        Left = 121
         Top = 4
         Width = 40
         Height = 40
@@ -559,13 +553,15 @@ object Form1: TForm1
           FFFFFFFFFFFFFFFFFFFFFDFDFDFFE1E1E1FF999898FF5B5A58FF5B5A59FF9999
           98FFE1E1E1FFFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        ParentShowHint = False
+        ShowHint = True
       end
       object SpeedButton1: TSpeedButton
         Left = 185
         Top = 4
         Width = 40
         Height = 40
-        Hint = 'Try to assemle all'
+        Hint = 'Try to assemle all together'
         Glyph.Data = {
           36080000424D3608000000000000360400002800000020000000200000000100
           08000000000000040000232E0000232E00000001000000010000000000000101
@@ -633,6 +629,8 @@ object Form1: TForm1
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7E0C8941E6FFAFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4C6E2FFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        ParentShowHint = False
+        ShowHint = True
       end
       object SpeedButton2: TSpeedButton
         Left = 457
@@ -694,23 +692,162 @@ object Form1: TForm1
           FFFFFFFFFFFFFFFFFFFFF6F6F6FFD6D6D6FFA4A4A7FF6F6F7CFF40405AFF4040
           5AFF6F6F7CFFA3A3A6FFD6D6D6FFF6F6F6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFF}
+        ParentShowHint = False
+        ShowHint = True
       end
-    end
-    object Panel3: TPanel
-      Left = 734
-      Top = 27
-      Width = 57
-      Height = 46
-      Align = alLeft
-      Caption = #254
-      Font.Charset = SYMBOL_CHARSET
-      Font.Color = clBlack
-      Font.Height = -35
-      Font.Name = 'Webdings'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 2
-      OnClick = Panel3Click
+      object SpeedButton3: TSpeedButton
+        Left = 41
+        Top = 4
+        Width = 40
+        Height = 40
+        Hint = 'open a existing database'
+        Glyph.Data = {
+          C20F0000424DC20F00000000000042000000280000001F000000200000000100
+          200003000000800F0000232E0000232E000000000000000000000000FF0000FF
+          0000FF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFEFEFFFFFDFEFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFF
+          FFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFF
+          FFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFF
+          FFFFFEFFFFFFFEFFFFFFFEFEFFFFFEFEFEFFFDFFFEFFFFFFFFFFFFFFFFFFFAFE
+          FDFFFAFDFCFFF7FBFDFFF7FBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFB
+          FDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFB
+          FDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFBFDFFFAFB
+          FDFFFAFBFDFFF9FBFAFFF9FCF9FFFEFEFFFFFFFFFFFFFFFFFFFFFBFDFDFFB2C9
+          DAFF5BADCEFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2
+          CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2
+          CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF61B2CFFF62B2CFFF63B2
+          CFFF5CA7C6FFDEE9F0FFFAFDFDFFFFFFFFFFFFFFFFFFFAFEFEFF99B6CEFF3EC6
+          E6FF44D4F4FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF46D4
+          F3FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF46D4
+          F3FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF46D4F3FF45D3F3FF44D3F3FF3AC3
+          E5FFC5D4E1FFFBFFFDFFFFFFFFFFFFFFFFFFFAFDFEFF98B4CEFF47BEDDFF58DB
+          F6FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADB
+          F8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADB
+          F8FF5ADBF8FF5ADBF8FF5ADBF8FF5ADBF8FF59DBF7FF57DCF7FF52D7F2FFA2C0
+          D3FFFCFEFEFFFFFFFFFFFFFFFFFFFAFDFEFF97B4CEFF3FADD1FF60DFF7FF61DF
+          F7FF61DFF7FF61DFF7FF61DFF7FF61DFF7FF61DFF7FF61DFF7FF61DFF7FF61DF
+          F7FF61DFF7FF61DFF7FF61DFF7FF61DFF7FF61DFF7FF61DFF7FF61DFF7FF61DF
+          F7FF61DFF7FF61DFF7FF61DFF7FF60DFF8FF60DFF8FF60DEF6FF72B2CCFFFCFE
+          FDFFFFFFFFFFFFFFFFFFFAFDFFFF94B8D2FF22A1CAFF2AD1F5FF2DD0F6FF2DD0
+          F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0
+          F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0
+          F6FF2DD0F6FF2DD0F6FF2DD0F6FF2DD0F7FF30D2F6FF44A9CDFFF8FAFBFFFFFF
+          FFFFFFFFFFFFFBFDFFFF91B9D1FF21ABCEFF31DDF9FF2DE0F9FF2DE0F9FF2DE0
+          F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0
+          F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0F9FF2DE0
+          F9FF2DE0F9FF2DE0F9FF2DE0F9FF2BE1F8FF2CBAD7FFE4ECF2FFFEFEFEFFFFFF
+          FFFFFBFEFFFF91B8D0FF1EB7D9FF30D2EEFF34E0FBFF34E0FBFF34E0FBFF34E0
+          FBFF34E0FBFF34E0FBFF34E0FBFF34E0FBFF34E0FBFF34E0FBFF34E0FBFF34E0
+          FBFF34E0FBFF34E0FBFF34E0FBFF34E0FBFF34E0FBFF34E0FBFF34E0FBFF34E0
+          FBFF34E0FBFF34E0FBFF33E0FBFF30C9E7FFCAD9E5FFFCFDFDFFFEFFFDFFFBFE
+          FFFF91B7D0FF1EC9EAFF33C3E1FF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2
+          FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2
+          FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2FAFF3AE2
+          FAFF3AE2FAFF3BE2F9FF37D8F4FFA4C5D5FFFCFCFCFFFEFFFEFFFBFEFEFF90B7
+          D1FF1CD7F3FF33B4D5FF43E3FAFF43E3FAFF42E3F9FF42E3F9FF42E3F9FF42E3
+          F9FF42E3F9FF42E3F9FF42E3F9FF42E3F9FF42E3F9FF42E3F9FF42E3F9FF42E3
+          F9FF42E3F9FF42E3F9FF42E3F9FF42E3F9FF42E3F9FF42E3F9FF42E3F9FF42E3
+          F9FF42E3FAFF40E1FAFF86B4D0FFF9FCFBFFFFFEFEFFFBFEFEFF90B8D2FF1CDE
+          F9FF29A9CBFF47E3FAFF47E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2
+          F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2
+          F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF46E2F9FF44E3
+          F8FF45E2F9FF51B0CDFFF6FAFBFFFEFFFEFFFBFEFFFF90B8D0FF19DEFAFF21AB
+          CEFF4EE1F6FF4CE2FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3
+          FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3
+          FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4EE3FAFF4DE3FAFF4DE2
+          F9FF3BB7D5FFE8F1F5FFFCFFFFFFFBFEFFFF90B8D0FF17DEFBFF1FB7DAFF4FD5
+          EEFF54E4F8FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4
+          F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4
+          F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF52E4F7FF53E5F8FF45C9
+          E3FFCBDFE7FFFEFFFFFFFBFEFFFF8EB7CFFF17DCFCFF1BC7E8FF4CC9E4FF5AE5
+          F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4
+          F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4
+          F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF5AE4F6FF57D8EDFFB3C9
+          D7FFFCFEFEFFFBFEFFFF8EB7CFFF1ADDFCFF1ED5F4FF48B8D5FF61E3F6FF60E3
+          F6FF60E3F6FF60E3F6FF60E3F6FF60E3F6FF60E3F6FF60E3F6FF60E3F6FF60E3
+          F6FF60E3F6FF60E3F6FF60E3F6FF60E3F6FF60E3F6FF60E3F6FF60E3F6FF60E3
+          F6FF60E3F6FF60E3F6FF60E3F6FF60E3F7FF60E3F7FF5EE2F4FF8BB7D0FFFCFF
+          FCFFFBFEFDFF8EB6D0FF17DEFCFF1FDEFCFF3AAACDFF63E6F5FF65E5F6FF65E5
+          F6FF65E5F6FF65E5F6FF65E5F6FF65E5F6FF65E5F6FF65E5F6FF65E5F6FF65E5
+          F6FF65E5F6FF65E5F6FF65E5F6FF65E5F6FF65E5F6FF65E5F6FF65E5F6FF65E5
+          F6FF65E5F6FF65E5F6FF65E5F6FF66E6F7FF67E7F8FF60AECDFFFBFCFDFFFBFE
+          FDFF8EB6D0FF18DEFCFF19E0FCFF34ABCFFF9DECF5FF9EEEF5FF9EEEF5FF9EEE
+          F5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEE
+          F5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEEF5FF9EEEF5FF9EED
+          F5FF9EEDF5FFA0EEF6FFA0EDF6FFA1EEF5FF75B9D3FFF0F5F9FFFBFEFDFF8EB6
+          D0FF2BDFFAFF2AE1FBFF30BFDEFF6EB1CCFF76B4CDFF76B4CDFF76B4CDFF76B4
+          CDFF76B4CDFF76B4CDFF76B4CDFF76B4CDFF76B4CDFF76B4CDFF76B4CDFF76B4
+          CDFF76B4CDFF76B3CEFF76B3CEFF76B4CDFF76B4CDFF76B4CDFF75B4CDFF74B3
+          CDFF72AEC9FF81B6CDFF84B8CDFF76ACC6FFECF2F6FFFBFEFDFF8FB6D0FF46E1
+          F7FF46E3F9FF47E2F8FF48E4F8FF48E3FAFF48E3FAFF48E3FAFF48E3FAFF48E3
+          FAFF49E3FAFF49E2FAFF48E3FBFF48E3FBFF48E3FBFF48E3FBFF46E3FAFF48E2
+          FAFF49E3F9FF49E3FAFF48E2FBFF48E2FBFF49E3FCFF4AE3FCFF49E2FBFF3BBA
+          D8FFE2F0F1FFF9FDFAFFF9FBFCFFFDFEFCFFFBFEFDFF8FB6D0FF5CE3F5FF5EE5
+          F7FF5EE5F7FF5EE5F7FF5EE5F7FF5EE5F7FF5EE5F7FF5EE5F7FF5EE5F7FF5FE5
+          F6FF5FE5F5FF5FE4F7FF5FE4F7FF5FE4F7FF5FE4F7FF5DE4F6FF59DBE8FF30A2
+          77FF33A673FF35A976FF37AA77FF3AA978FF3CA978FF3FAA77FF3AA36CFF63AC
+          73FFD9E4DAFFFFFFFFFFFFFFFFFFFCFEFDFF8FB7CFFF72DFF0FF74E6F5FF76E6
+          F5FF76E6F5FF76E6F5FF76E6F5FF76E6F5FF76E6F5FF76E6F5FF7AE7F3FF59C2
+          D8FF55BDD4FF56BDD5FF56BDD5FF56BDD5FF54BCD6FF52B9CBFF238F5CFF4DC5
+          5BFF5AD169FF5DD56EFF64D773FF6ADB78FF70DD7CFF75E182FF68CE76FFC3D3
+          C3FFFCFEFDFFFFFFFFFFFBFDFBFFE0EAEFFF5EB1CAFF90E7F3FF8DE8F2FF8DE8
+          F2FF8DE8F2FF8DE8F2FF8DE8F2FF8CE7F1FF8DE8F2FF67BFD6FFBED5DEFFE3ED
+          EFFFE5EDF0FFE5EDF0FFE5EDF0FFE5EDF0FFE5EDF0FFDEE9E9FF7EB285FF46C1
+          5CFF5AD16CFF60D470FF65D774FF6BD979FF72DE7FFF67CE75FFC1D4C2FFFBFE
+          FCFFFFFFFFFFFCFEFEFFFEFEFDFFC5D7E2FF8EC9DAFFC9F3F5FFCAF5F6FFCAF4
+          F6FFCAF4F6FFCAF4F6FFCCF4F7FFA5DCD9FF5C9E86FFF5F9F5FFFAFEFCFFFBFD
+          FDFFFDFEFFFFFDFFFFFFFDFFFFFFFDFEFFFFFCFBFDFFF3F8F1FF72AB76FF51C7
+          61FF5CD16BFF61D471FF67D776FF6DDB7AFF64CE71FFC1D4C2FFFBFEFCFFFFFF
+          FFFFFFFFFFFFFEFFFFFFF3FAF9FFADC8D8FF9BB9CFFF9BB8D0FF9BB7D2FF9BB7
+          D2FF9BB7D2FF98B6D0FF8EB9C0FF2E9436FF95BB98FFF3F8F4FFFDFCFDFFFEFF
+          FEFFFFFFFFFFFFFFFFFFFFFFFEFFF8F9F6FFCADDCAFF3EA849FF52CD63FF54D0
+          66FF5BD16DFF63D472FF68D876FF5FCB6BFFC1D4C2FFFBFEFCFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFDFCFEFFFCFEFCFFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFDFEFEFFFCFDFDFFB0CCB3FF1FA02EFF6AA96EFFC9DACAFFEFF4EFFFF8FC
+          FAFFF2FAF5FFDAE8DBFF96BA97FF35A842FF45C755FF4ACB5CFF4DCE61FF56D0
+          67FF5ED26DFF62D671FF5AC868FFC1D4C2FFFBFEFCFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFF7FAF9FF8FBB92FF27AD39FF23AC37FF2DA23AFF44A14EFF37A1
+          43FF23A834FF2CBC3FFF37C449FF3DC552FF44C859FF49CC5DFF51CD61FF53C7
+          61FF5FD36EFF58C767FFC1D4C2FFFBFEFCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFEFFFEFFF9FBF8FFA4C7A6FF29A437FF2CBB3EFF2ABE3DFF27BC3EFF28BD
+          3CFF2FBE42FF32C245FF37C34DFF40C653FF40C254FF49A851FF6FAB79FF51C3
+          60FF55C564FFC1D4C2FFFBFEFCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFE
+          FEFFFEFEFEFFFBFBFBFFD4E4D5FF80B285FF29A237FF21AD36FF28B43CFF29B6
+          3CFF29B53DFF2BAD3CFF44A549FF9FC09FFFE9EFE9FFF0F4F0FF7FB381FF44B7
+          51FFC1D4C3FFFCFEFCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFEFFFEFFFFFEFFFFFAFDFCFFE6F2E6FFC8D9CBFFB5CCB7FFAFC8B2FFB7CF
+          BAFFCEE1D1FFF1F7F0FFFFFEFEFFFEFFFEFFFCFDFDFFF3F6F3FF93B994FFD8E4
+          D8FFFEFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFBFEFDFFFEFDFDFFFAFEFAFFFBFCFCFFFDFDFCFFFAFDFBFFFBFE
+          FBFFFBFEFDFFFFFFFFFFFFFFFFFFFFFFFFFFFCFDFDFFFAFCFAFFFDFEFCFFFFFF
+          FFFFFFFFFFFF}
+        Layout = blGlyphTop
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object Panel3: TPanel
+        Left = 735
+        Top = 2
+        Width = 45
+        Height = 43
+        Caption = #254
+        Font.Charset = SYMBOL_CHARSET
+        Font.Color = clBlack
+        Font.Height = -35
+        Font.Name = 'Webdings'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        OnClick = Panel3Click
+      end
     end
   end
   object PageControl2: TPageControl
@@ -740,7 +877,7 @@ object Form1: TForm1
         Left = 0
         Top = 0
         Width = 170
-        Height = 315
+        Height = 339
         Align = alClient
         TabOrder = 0
       end
@@ -774,15 +911,42 @@ object Form1: TForm1
           Top = 0
           Height = 335
         end
-        object TreeView1: TPageControl
+        object projectPageControl: TPageControl
           Left = 0
           Top = 0
           Width = 193
           Height = 335
-          ActivePage = TabSheet10
+          ActivePage = TabSheet21
           Align = alLeft
           Constraints.MinWidth = 130
           TabOrder = 0
+          OnChange = projectPageControlChange
+          object TabSheet21: TTabSheet
+            Caption = 'Projects'
+            ImageIndex = 1
+            object projectsGrid: TJvStringGrid
+              Left = 0
+              Top = 0
+              Width = 185
+              Height = 307
+              Align = alClient
+              ColCount = 1
+              DefaultColWidth = 230
+              DefaultRowHeight = 42
+              FixedCols = 0
+              FixedRows = 0
+              PopupMenu = projectsPopupMenu
+              TabOrder = 0
+              OnDblClick = projectsGridDblClick
+              OnDrawCell = projectsGridDrawCell
+              Alignment = taLeftJustify
+              FixedFont.Charset = DEFAULT_CHARSET
+              FixedFont.Color = clWindowText
+              FixedFont.Height = -11
+              FixedFont.Name = 'MS Sans Serif'
+              FixedFont.Style = []
+            end
+          end
           object TabSheet10: TTabSheet
             Caption = 'Properties'
             object TypesGrid: TStringGrid
@@ -807,11 +971,181 @@ object Form1: TForm1
           Top = 0
           Width = 410
           Height = 335
-          ActivePage = TabSheet2
+          ActivePage = TabSheet22
           Align = alClient
           Constraints.MinHeight = 200
           Constraints.MinWidth = 300
           TabOrder = 1
+          OnChange = cvPageControlChange
+          object TabSheet22: TTabSheet
+            Caption = 'Settings'
+            ImageIndex = 6
+            object ScrollBox22: TScrollBox
+              Left = 0
+              Top = 0
+              Width = 402
+              Height = 307
+              Align = alClient
+              TabOrder = 0
+              object Label35: TLabel
+                Left = 8
+                Top = 8
+                Width = 65
+                Height = 13
+                Caption = 'Project name:'
+              end
+              object Label36: TLabel
+                Left = 8
+                Top = 48
+                Width = 25
+                Height = 13
+                Caption = 'Path:'
+              end
+              object Label37: TLabel
+                Left = 8
+                Top = 136
+                Width = 34
+                Height = 13
+                Caption = 'Author:'
+              end
+              object Label38: TLabel
+                Left = 8
+                Top = 176
+                Width = 47
+                Height = 13
+                Caption = 'Copyright:'
+              end
+              object Label39: TLabel
+                Left = 152
+                Top = 136
+                Width = 38
+                Height = 13
+                Caption = 'Version:'
+              end
+              object Label40: TLabel
+                Left = 8
+                Top = 96
+                Width = 23
+                Height = 13
+                Caption = 'Title:'
+              end
+              object Label41: TLabel
+                Left = 8
+                Top = 216
+                Width = 46
+                Height = 13
+                Caption = 'Summary:'
+              end
+              object Label42: TLabel
+                Left = 8
+                Top = 266
+                Width = 47
+                Height = 13
+                Caption = 'Comment:'
+              end
+              object Image1: TImage
+                Left = 296
+                Top = 370
+                Width = 57
+                Height = 55
+              end
+              object Label43: TLabel
+                Left = 288
+                Top = 8
+                Width = 76
+                Height = 13
+                Caption = 'Output/Targets:'
+              end
+              object Edit1: TEdit
+                Left = 8
+                Top = 24
+                Width = 265
+                Height = 21
+                TabOrder = 0
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+              end
+              object Edit2: TEdit
+                Left = 8
+                Top = 64
+                Width = 265
+                Height = 21
+                TabOrder = 1
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+              end
+              object Edit3: TEdit
+                Left = 8
+                Top = 152
+                Width = 121
+                Height = 21
+                TabOrder = 2
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+              end
+              object Edit4: TEdit
+                Left = 8
+                Top = 192
+                Width = 121
+                Height = 21
+                TabOrder = 3
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+              end
+              object Edit5: TEdit
+                Left = 152
+                Top = 152
+                Width = 121
+                Height = 21
+                TabOrder = 4
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+              end
+              object Edit6: TEdit
+                Left = 8
+                Top = 112
+                Width = 265
+                Height = 21
+                TabOrder = 5
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+              end
+              object Edit7: TEdit
+                Left = 8
+                Top = 232
+                Width = 265
+                Height = 21
+                TabOrder = 6
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+              end
+              object Memo1: TMemo
+                Left = 8
+                Top = 281
+                Width = 265
+                Height = 89
+                TabOrder = 7
+              end
+              object projectOutput: TStringGrid
+                Left = 288
+                Top = 24
+                Width = 91
+                Height = 146
+                ColCount = 1
+                DefaultColWidth = 81
+                FixedCols = 0
+                FixedRows = 0
+                Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goRangeSelect]
+                TabOrder = 8
+                RowHeights = (
+                  24
+                  24
+                  19
+                  24
+                  24)
+              end
+            end
+          end
           object TabSheet2: TTabSheet
             Caption = 'Setting'#39's :'
             object ScrollBox2: TScrollBox
@@ -953,7 +1287,7 @@ object Form1: TForm1
                     object EditNameDEU: TEdit
                       Left = 8
                       Top = 19
-                      Width = 290
+                      Width = 278
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 0
@@ -965,7 +1299,7 @@ object Form1: TForm1
                     object EditDescDEU: TEdit
                       Left = 8
                       Top = 60
-                      Width = 290
+                      Width = 278
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 1
@@ -1005,8 +1339,8 @@ object Form1: TForm1
                     end
                     object EditNameFRA: TEdit
                       Left = 8
-                      Top = 15
-                      Width = 278
+                      Top = -5
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akRight, akBottom]
                       TabOrder = 0
@@ -1017,8 +1351,8 @@ object Form1: TForm1
                     end
                     object EditDescFRA: TEdit
                       Left = 8
-                      Top = 56
-                      Width = 278
+                      Top = 36
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akRight, akBottom]
                       TabOrder = 1
@@ -1059,7 +1393,7 @@ object Form1: TForm1
                     object EditNameSPA: TEdit
                       Left = 8
                       Top = 19
-                      Width = 278
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 0
@@ -1067,13 +1401,31 @@ object Form1: TForm1
                     object EditDescSPA: TEdit
                       Left = 8
                       Top = 60
-                      Width = 278
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 1
                     end
                   end
                 end
+              end
+              object varButtonAdd: TButton
+                Left = 312
+                Top = 61
+                Width = 75
+                Height = 25
+                Caption = 'Add'
+                TabOrder = 5
+                OnClick = varButtonAddClick
+              end
+              object varButtonDelete: TButton
+                Left = 312
+                Top = 101
+                Width = 75
+                Height = 25
+                Caption = 'Delete'
+                TabOrder = 6
+                OnClick = varButtonDeleteClick
               end
             end
           end
@@ -1141,7 +1493,7 @@ object Form1: TForm1
               object defaultEdit: TEdit
                 Left = 8
                 Top = 24
-                Width = 278
+                Width = 258
                 Height = 21
                 Anchors = [akLeft, akTop, akRight]
                 TabOrder = 0
@@ -1198,7 +1550,7 @@ object Form1: TForm1
               end
               object Button1: TJvArrowButton
                 Left = 128
-                Top = 188
+                Top = 168
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -1219,7 +1571,7 @@ object Form1: TForm1
               end
               object JvArrowButton1: TJvArrowButton
                 Left = 128
-                Top = 220
+                Top = 200
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -1240,7 +1592,7 @@ object Form1: TForm1
               end
               object Button2: TButton
                 Left = 8
-                Top = 188
+                Top = 168
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -1249,7 +1601,7 @@ object Form1: TForm1
               end
               object Button3: TButton
                 Left = 8
-                Top = 220
+                Top = 200
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -1258,7 +1610,7 @@ object Form1: TForm1
               end
               object Button4: TButton
                 Left = 8
-                Top = 252
+                Top = 232
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -1268,8 +1620,8 @@ object Form1: TForm1
               object MemoBox: TSynEdit
                 Left = 3
                 Top = 24
-                Width = 363
-                Height = 149
+                Width = 343
+                Height = 129
                 Anchors = [akLeft, akTop, akRight, akBottom]
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -1317,12 +1669,13 @@ object Form1: TForm1
                 Height = 13
                 Caption = 'Enum:'
               end
-              object JvArrowButton2: TJvArrowButton
+              object enumButtonLoad: TJvArrowButton
                 Left = 128
                 Top = 192
                 Width = 89
                 Height = 25
-                DropDown = PopupMenu1
+                ArrowWidth = 16
+                DropDown = enumPopupLoad
                 Caption = 'Load'
                 FlatArrowColor = 8454016
                 Font.Charset = DEFAULT_CHARSET
@@ -1336,13 +1689,15 @@ object Form1: TForm1
                 FillFont.Name = 'MS Sans Serif'
                 FillFont.Style = []
                 ParentFont = False
+                OnClick = enumButtonLoadClick
               end
-              object JvArrowButton3: TJvArrowButton
+              object enumButtonSave: TJvArrowButton
                 Left = 128
                 Top = 224
                 Width = 89
                 Height = 25
-                DropDown = PopupMenu1
+                ArrowWidth = 16
+                DropDown = enumPopupSave
                 Caption = 'Save'
                 FlatArrowColor = 8454016
                 Font.Charset = DEFAULT_CHARSET
@@ -1356,6 +1711,7 @@ object Form1: TForm1
                 FillFont.Name = 'MS Sans Serif'
                 FillFont.Style = []
                 ParentFont = False
+                OnClick = enumButtonSaveClick
               end
               object Label32: TLabel
                 Left = 8
@@ -1381,7 +1737,7 @@ object Form1: TForm1
               object defaultEnum: TEdit
                 Left = 8
                 Top = 24
-                Width = 286
+                Width = 274
                 Height = 21
                 Anchors = [akLeft, akTop, akRight]
                 TabOrder = 0
@@ -1418,7 +1774,7 @@ object Form1: TForm1
               object defaultEnumValue: TEdit
                 Left = 8
                 Top = 64
-                Width = 286
+                Width = 274
                 Height = 21
                 Anchors = [akLeft, akTop, akRight]
                 TabOrder = 4
@@ -1432,9 +1788,11 @@ object Form1: TForm1
                 Top = 96
                 Width = 185
                 Height = 81
+                Color = clWhite
                 ItemHeight = 13
                 Background.FillMode = bfmTile
                 Background.Visible = False
+                Style = lbOwnerDrawFixed
                 TabOrder = 5
               end
               object JvBitBtn1: TJvBitBtn
@@ -1444,13 +1802,18 @@ object Form1: TForm1
                 Height = 25
                 Caption = #234
                 Font.Charset = SYMBOL_CHARSET
-                Font.Color = clWindowText
+                Font.Color = clBlue
                 Font.Height = -13
                 Font.Name = 'Wingdings'
                 Font.Style = []
                 ParentFont = False
                 TabOrder = 6
                 OnClick = JvBitBtn1Click
+                HotTrackFont.Charset = SYMBOL_CHARSET
+                HotTrackFont.Color = clWindowText
+                HotTrackFont.Height = -13
+                HotTrackFont.Name = 'Wingdings'
+                HotTrackFont.Style = []
               end
               object JvBitBtn2: TJvBitBtn
                 Left = 200
@@ -1459,16 +1822,21 @@ object Form1: TForm1
                 Height = 25
                 Caption = #233
                 Font.Charset = SYMBOL_CHARSET
-                Font.Color = clWindowText
+                Font.Color = clBlue
                 Font.Height = -13
                 Font.Name = 'Wingdings'
                 Font.Style = []
                 ParentFont = False
                 TabOrder = 7
                 OnClick = JvBitBtn2Click
+                HotTrackFont.Charset = SYMBOL_CHARSET
+                HotTrackFont.Color = clWindowText
+                HotTrackFont.Height = -13
+                HotTrackFont.Name = 'Wingdings'
+                HotTrackFont.Style = []
               end
               object EnumAddButton: TButton
-                Left = 308
+                Left = 296
                 Top = 21
                 Width = 75
                 Height = 25
@@ -1477,14 +1845,15 @@ object Form1: TForm1
                 TabOrder = 8
                 OnClick = EnumAddButtonClick
               end
-              object Button34: TButton
-                Left = 308
+              object enumDeleteButton: TButton
+                Left = 296
                 Top = 53
                 Width = 75
                 Height = 25
                 Anchors = [akTop, akRight]
                 Caption = 'Delete'
                 TabOrder = 9
+                OnClick = enumDeleteButtonClick
               end
             end
           end
@@ -1650,7 +2019,7 @@ object Form1: TForm1
         end
         object JvArrowButton8: TJvArrowButton
           Left = 408
-          Top = 204
+          Top = 184
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1671,7 +2040,7 @@ object Form1: TForm1
         end
         object JvArrowButton9: TJvArrowButton
           Left = 408
-          Top = 236
+          Top = 216
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1693,8 +2062,8 @@ object Form1: TForm1
         object SynEdit1: TSynEdit
           Left = 8
           Top = 24
-          Width = 550
-          Height = 173
+          Width = 530
+          Height = 153
           Anchors = [akLeft, akTop, akRight, akBottom]
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -1722,7 +2091,7 @@ object Form1: TForm1
         end
         object RadioGroup1: TRadioGroup
           Left = 8
-          Top = 204
+          Top = 184
           Width = 297
           Height = 95
           Anchors = [akLeft, akBottom]
@@ -1731,7 +2100,7 @@ object Form1: TForm1
         end
         object RadioButton1: TRadioButton
           Left = 24
-          Top = 228
+          Top = 208
           Width = 97
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -1742,7 +2111,7 @@ object Form1: TForm1
         end
         object RadioButton2: TRadioButton
           Left = 128
-          Top = 228
+          Top = 208
           Width = 129
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -1751,7 +2120,7 @@ object Form1: TForm1
         end
         object RadioButton4: TRadioButton
           Left = 24
-          Top = 252
+          Top = 232
           Width = 113
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -1760,7 +2129,7 @@ object Form1: TForm1
         end
         object RadioButton3: TRadioButton
           Left = 24
-          Top = 276
+          Top = 256
           Width = 113
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -1769,7 +2138,7 @@ object Form1: TForm1
         end
         object EditHeaderFrom: TEdit
           Left = 196
-          Top = 226
+          Top = 206
           Width = 37
           Height = 21
           Anchors = [akLeft, akBottom]
@@ -1780,7 +2149,7 @@ object Form1: TForm1
         end
         object EditHeaderTo: TEdit
           Left = 252
-          Top = 226
+          Top = 206
           Width = 37
           Height = 21
           Anchors = [akLeft, akBottom]
@@ -1791,7 +2160,7 @@ object Form1: TForm1
         end
         object Button17: TButton
           Left = 312
-          Top = 204
+          Top = 184
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1800,7 +2169,7 @@ object Form1: TForm1
         end
         object Button18: TButton
           Left = 312
-          Top = 236
+          Top = 216
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1809,7 +2178,7 @@ object Form1: TForm1
         end
         object Button19: TButton
           Left = 312
-          Top = 268
+          Top = 248
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1852,7 +2221,7 @@ object Form1: TForm1
         end
         object JvArrowButton10: TJvArrowButton
           Left = 408
-          Top = 204
+          Top = 184
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1873,7 +2242,7 @@ object Form1: TForm1
         end
         object JvArrowButton11: TJvArrowButton
           Left = 408
-          Top = 236
+          Top = 216
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1895,8 +2264,8 @@ object Form1: TForm1
         object SynEdit2: TSynEdit
           Left = 8
           Top = 24
-          Width = 550
-          Height = 173
+          Width = 530
+          Height = 153
           Anchors = [akLeft, akTop, akRight, akBottom]
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -1924,7 +2293,7 @@ object Form1: TForm1
         end
         object RadioGroup2: TRadioGroup
           Left = 8
-          Top = 204
+          Top = 184
           Width = 297
           Height = 95
           Anchors = [akLeft, akBottom]
@@ -1933,7 +2302,7 @@ object Form1: TForm1
         end
         object RadioButton5: TRadioButton
           Left = 24
-          Top = 228
+          Top = 208
           Width = 97
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -1944,7 +2313,7 @@ object Form1: TForm1
         end
         object RadioButton6: TRadioButton
           Left = 24
-          Top = 252
+          Top = 232
           Width = 113
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -1953,7 +2322,7 @@ object Form1: TForm1
         end
         object RadioButton7: TRadioButton
           Left = 24
-          Top = 276
+          Top = 256
           Width = 113
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -1962,7 +2331,7 @@ object Form1: TForm1
         end
         object RadioButton8: TRadioButton
           Left = 128
-          Top = 228
+          Top = 208
           Width = 129
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -1971,7 +2340,7 @@ object Form1: TForm1
         end
         object EditFooterFrom: TEdit
           Left = 196
-          Top = 226
+          Top = 206
           Width = 37
           Height = 21
           Anchors = [akLeft, akBottom]
@@ -1982,7 +2351,7 @@ object Form1: TForm1
         end
         object EditFooterTo: TEdit
           Left = 252
-          Top = 226
+          Top = 206
           Width = 37
           Height = 21
           Anchors = [akLeft, akBottom]
@@ -1993,7 +2362,7 @@ object Form1: TForm1
         end
         object Button20: TButton
           Left = 312
-          Top = 204
+          Top = 184
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2002,7 +2371,7 @@ object Form1: TForm1
         end
         object Button21: TButton
           Left = 312
-          Top = 236
+          Top = 216
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2011,7 +2380,7 @@ object Form1: TForm1
         end
         object Button22: TButton
           Left = 312
-          Top = 268
+          Top = 248
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2048,7 +2417,7 @@ object Form1: TForm1
         end
         object JvArrowButton12: TJvArrowButton
           Left = 112
-          Top = 204
+          Top = 184
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2069,7 +2438,7 @@ object Form1: TForm1
         end
         object JvArrowButton13: TJvArrowButton
           Left = 112
-          Top = 236
+          Top = 216
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2091,8 +2460,8 @@ object Form1: TForm1
         object SynEdit3: TSynEdit
           Left = 8
           Top = 24
-          Width = 550
-          Height = 173
+          Width = 530
+          Height = 153
           Anchors = [akLeft, akTop, akRight, akBottom]
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -2120,7 +2489,7 @@ object Form1: TForm1
         end
         object Button23: TButton
           Left = 8
-          Top = 204
+          Top = 184
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2129,7 +2498,7 @@ object Form1: TForm1
         end
         object Button24: TButton
           Left = 8
-          Top = 236
+          Top = 216
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2138,7 +2507,7 @@ object Form1: TForm1
         end
         object Button25: TButton
           Left = 8
-          Top = 268
+          Top = 248
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2175,7 +2544,7 @@ object Form1: TForm1
         end
         object JvArrowButton14: TJvArrowButton
           Left = 112
-          Top = 204
+          Top = 184
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2196,7 +2565,7 @@ object Form1: TForm1
         end
         object JvArrowButton15: TJvArrowButton
           Left = 112
-          Top = 236
+          Top = 216
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2218,8 +2587,8 @@ object Form1: TForm1
         object SynEdit4: TSynEdit
           Left = 8
           Top = 24
-          Width = 550
-          Height = 173
+          Width = 530
+          Height = 153
           Anchors = [akLeft, akTop, akRight, akBottom]
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -2247,7 +2616,7 @@ object Form1: TForm1
         end
         object Button26: TButton
           Left = 8
-          Top = 204
+          Top = 184
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2256,7 +2625,7 @@ object Form1: TForm1
         end
         object Button27: TButton
           Left = 8
-          Top = 236
+          Top = 216
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2265,7 +2634,7 @@ object Form1: TForm1
         end
         object Button28: TButton
           Left = 8
-          Top = 268
+          Top = 248
           Width = 89
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -2478,7 +2847,7 @@ object Form1: TForm1
           Top = 0
           Width = 410
           Height = 335
-          ActivePage = TabSheet17
+          ActivePage = TabSheet20
           Align = alClient
           TabOrder = 1
           object TabSheet17: TTabSheet
@@ -2591,7 +2960,7 @@ object Form1: TForm1
                     object EditHTMLdeuName: TEdit
                       Left = 8
                       Top = 19
-                      Width = 278
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 0
@@ -2602,7 +2971,7 @@ object Form1: TForm1
                     object EditHTMLdeuDesc: TEdit
                       Left = 8
                       Top = 60
-                      Width = 278
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 1
@@ -2642,7 +3011,7 @@ object Form1: TForm1
                     object EditHTMLfreName: TEdit
                       Left = 8
                       Top = 19
-                      Width = 278
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 0
@@ -2653,7 +3022,7 @@ object Form1: TForm1
                     object EditHTMLfreDesc: TEdit
                       Left = 8
                       Top = 60
-                      Width = 278
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 1
@@ -2693,7 +3062,7 @@ object Form1: TForm1
                     object EditHTMLespName: TEdit
                       Left = 8
                       Top = 19
-                      Width = 278
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 0
@@ -2704,7 +3073,7 @@ object Form1: TForm1
                     object EditHTMLespDesc: TEdit
                       Left = 8
                       Top = 60
-                      Width = 278
+                      Width = 258
                       Height = 21
                       Anchors = [akLeft, akTop, akRight]
                       TabOrder = 1
@@ -2745,7 +3114,7 @@ object Form1: TForm1
               end
               object JvArrowButton18: TJvArrowButton
                 Left = 112
-                Top = 196
+                Top = 176
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -2766,7 +3135,7 @@ object Form1: TForm1
               end
               object JvArrowButton19: TJvArrowButton
                 Left = 112
-                Top = 228
+                Top = 208
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -2788,8 +3157,8 @@ object Form1: TForm1
               object SynEdit5: TSynEdit
                 Left = 8
                 Top = 24
-                Width = 358
-                Height = 157
+                Width = 338
+                Height = 137
                 Anchors = [akLeft, akTop, akRight, akBottom]
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -2817,7 +3186,7 @@ object Form1: TForm1
               end
               object Button30: TButton
                 Left = 8
-                Top = 196
+                Top = 176
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -2826,7 +3195,7 @@ object Form1: TForm1
               end
               object Button31: TButton
                 Left = 8
-                Top = 228
+                Top = 208
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -2835,7 +3204,7 @@ object Form1: TForm1
               end
               object Button32: TButton
                 Left = 8
-                Top = 260
+                Top = 240
                 Width = 89
                 Height = 25
                 Anchors = [akLeft, akBottom]
@@ -2848,104 +3217,6 @@ object Form1: TForm1
       end
     end
   end
-  object FilePopupMenu: TPopupMenu
-    Left = 56
-    Top = 224
-    object New1: TMenuItem
-      Caption = 'New'
-      OnClick = New1Click
-    end
-    object Open1: TMenuItem
-      Caption = 'Open ...'
-      ShortCut = 16463
-      OnClick = Open1Click
-    end
-    object N1: TMenuItem
-      Caption = '-'
-    end
-    object Save1: TMenuItem
-      Caption = 'Save'
-      ShortCut = 16467
-    end
-    object SaveAs1: TMenuItem
-      Caption = 'Save As ...'
-    end
-    object N2: TMenuItem
-      Caption = '-'
-    end
-    object MenuFile_ExitApplication: TMenuItem
-      Caption = 'Exit'
-      OnClick = MenuFile_ExitApplicationClick
-    end
-  end
-  object EditPopupMenu: TPopupMenu
-    Left = 88
-    Top = 224
-    object Copy1: TMenuItem
-      Caption = 'Copy'
-      ShortCut = 16451
-    end
-    object Cut1: TMenuItem
-      Caption = 'Cut'
-    end
-    object Paste1: TMenuItem
-      Caption = 'Paste'
-      ShortCut = 16470
-    end
-    object N3: TMenuItem
-      Caption = '-'
-    end
-    object Undo1: TMenuItem
-      Caption = 'Undo'
-    end
-    object Redo1: TMenuItem
-      Caption = 'Redo'
-    end
-    object N4: TMenuItem
-      Caption = '-'
-    end
-    object Delete1: TMenuItem
-      Caption = 'Delete'
-    end
-    object N6: TMenuItem
-      Caption = '-'
-    end
-    object Preferences1: TMenuItem
-      Caption = 'Preferences'
-      OnClick = Preferences1Click
-    end
-  end
-  object ActionPopupMenu: TPopupMenu
-    Left = 121
-    Top = 225
-    object PackTable: TMenuItem
-      Caption = 'Table Pack'
-      OnClick = PackTableClick
-    end
-    object ZipTable: TMenuItem
-      Caption = 'Table Zip / Delete'
-      OnClick = ZipTableClick
-    end
-    object N5: TMenuItem
-      Caption = '-'
-    end
-    object DbReBase: TMenuItem
-      Caption = 'DB ReBase'
-      OnClick = DbReBaseClick
-    end
-    object DbDelete: TMenuItem
-      Caption = 'DB Delete'
-      OnClick = DbDeleteClick
-    end
-  end
-  object HelpPopupMenu: TPopupMenu
-    Left = 153
-    Top = 225
-    object About1: TMenuItem
-      Caption = 'About ...'
-      OnClick = About1Click
-    end
-  end
   object DbOpenDialog: TOpenDialog
     Left = 329
     Top = 41
@@ -2955,7 +3226,7 @@ object Form1: TForm1
     Options.AutoDetectLineLimit = 0
     Options.Visible = False
     Left = 508
-    Top = 231
+    Top = 327
   end
   object SynHTMLSyn1: TSynHTMLSyn
     Options.AutoDetectEnabled = False
@@ -3695,8 +3966,194 @@ object Form1: TForm1
     Top = 259
   end
   object JvAppEvents1: TJvAppEvents
+    HintHidePause = 3200
     OnHint = JvAppEvents1Hint
     Left = 89
     Top = 259
+  end
+  object JvBalloonHint1: TJvBalloonHint
+    DefaultHeader = 'Information'
+    Left = 537
+    Top = 51
+  end
+  object JvOfficeMenuItemPainter1: TJvOfficeMenuItemPainter
+    Left = 64
+    Top = 327
+  end
+  object FilePopupMenu: TJvPopupMenu
+    Style = msItemPainter
+    ImageMargin.Left = 0
+    ImageMargin.Top = 0
+    ImageMargin.Right = 0
+    ImageMargin.Bottom = 0
+    ImageSize.Height = 0
+    ImageSize.Width = 0
+    ItemPainter = JvOfficeMenuItemPainter1
+    Left = 56
+    Top = 199
+    object New: TMenuItem
+      Caption = 'New'
+      Hint = 'Create a new Database /Project'
+    end
+    object Open: TMenuItem
+      Caption = 'Open ...'
+      Hint = 'Open a existing Database/Project'
+      ShortCut = 16463
+    end
+    object N7: TMenuItem
+      Caption = '-'
+    end
+    object Save: TMenuItem
+      Caption = 'Save'
+      Hint = 'Save the current open Database/Project'
+      ShortCut = 16467
+    end
+    object SaveAs: TMenuItem
+      Caption = 'Save As ...'
+      Hint = 'Save the current Database/Project'#13#10'under a user defined name.'
+    end
+    object N8: TMenuItem
+      Caption = '-'
+    end
+    object MenuFile_ExitApplication: TMenuItem
+      Caption = 'Exit'
+      Hint = 'Exit/End the Application'
+      OnClick = MenuFile_ExitApplicationClick
+    end
+  end
+  object EditPopupMenu: TJvPopupMenu
+    Style = msItemPainter
+    ImageMargin.Left = 0
+    ImageMargin.Top = 0
+    ImageMargin.Right = 0
+    ImageMargin.Bottom = 0
+    ImageSize.Height = 0
+    ImageSize.Width = 0
+    ItemPainter = JvOfficeMenuItemPainter1
+    Left = 88
+    Top = 199
+    object Copy1: TMenuItem
+      Caption = 'Copy'
+      ShortCut = 16451
+    end
+    object Cut1: TMenuItem
+      Caption = 'Cut'
+    end
+    object Paste1: TMenuItem
+      Caption = 'Paste'
+      ShortCut = 16470
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object Undo1: TMenuItem
+      Caption = 'Undo'
+    end
+    object Redo1: TMenuItem
+      Caption = 'Redo'
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object Delete1: TMenuItem
+      Caption = 'Delete'
+    end
+    object N3: TMenuItem
+      Caption = '-'
+    end
+    object Preferences1: TMenuItem
+      Caption = 'Preferences'
+    end
+  end
+  object ActionPopupMenu: TJvPopupMenu
+    Style = msItemPainter
+    ImageMargin.Left = 0
+    ImageMargin.Top = 0
+    ImageMargin.Right = 0
+    ImageMargin.Bottom = 0
+    ImageSize.Height = 0
+    ImageSize.Width = 0
+    ItemPainter = JvOfficeMenuItemPainter1
+    Left = 120
+    Top = 199
+    object PackTable1: TMenuItem
+      Caption = 'Table Pack'
+    end
+    object ZipTable1: TMenuItem
+      Caption = 'Table Zip / Delete'
+    end
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object DbReBase1: TMenuItem
+      Caption = 'DB ReBase'
+    end
+    object DbDelete1: TMenuItem
+      Caption = 'DB Delete'
+    end
+  end
+  object HelpPopupMenu: TJvPopupMenu
+    Style = msItemPainter
+    ImageMargin.Left = 0
+    ImageMargin.Top = 0
+    ImageMargin.Right = 0
+    ImageMargin.Bottom = 0
+    ImageSize.Height = 0
+    ImageSize.Width = 0
+    ItemPainter = JvOfficeMenuItemPainter1
+    Left = 152
+    Top = 199
+    object About1: TMenuItem
+      Caption = 'About ...'
+      OnClick = About1Click
+    end
+  end
+  object enumPopupLoad: TJvPopupMenu
+    Style = msItemPainter
+    ImageMargin.Left = 0
+    ImageMargin.Top = 0
+    ImageMargin.Right = 0
+    ImageMargin.Bottom = 0
+    ImageSize.Height = 0
+    ImageSize.Width = 0
+    ItemPainter = JvOfficeMenuItemPainter1
+    Left = 152
+    Top = 231
+  end
+  object enumPopupSave: TJvPopupMenu
+    Style = msItemPainter
+    ImageMargin.Left = 0
+    ImageMargin.Top = 0
+    ImageMargin.Right = 0
+    ImageMargin.Bottom = 0
+    ImageSize.Height = 0
+    ImageSize.Width = 0
+    ItemPainter = JvOfficeMenuItemPainter1
+    Left = 152
+    Top = 263
+  end
+  object projectsPopupMenu: TJvPopupMenu
+    Style = msItemPainter
+    ImageMargin.Left = 0
+    ImageMargin.Top = 0
+    ImageMargin.Right = 0
+    ImageMargin.Bottom = 0
+    ImageSize.Height = 0
+    ImageSize.Width = 0
+    ItemPainter = JvOfficeMenuItemPainter1
+    Left = 152
+    Top = 295
+    object OpenexistingProject1: TMenuItem
+      Caption = 'Open/Add existing Project'
+    end
+    object CreatenewProject1: TMenuItem
+      Caption = 'Create new Project'
+    end
+    object N5: TMenuItem
+      Caption = '-'
+    end
+    object DeleteProjectItem1: TMenuItem
+      Caption = 'Delete selected Project Item'
+    end
   end
 end

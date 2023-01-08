@@ -4,7 +4,8 @@ uses
   Forms,
   CustomVariablesForm in 'CustomVariablesForm.pas' {Form1},
   About in 'About.pas' {AboutDlg},
-  Preferences in 'Preferences.pas' {PreferDialog};
+  Preferences in 'Preferences.pas' {PreferDialog},
+  MyHintWindow in 'MyHintWindow.pas';
 
 {$R *.res}
 

@@ -105,10 +105,19 @@ HostApplication=G:\AMIGA-500\paule32\test1\src\windows\start.exe
 Launcher=
 UseLauncher=0
 DebugCWD=
+[Resource DLL Projects]
+Item0=Deutsch (Deutschland)*$00000407*DEU*DEU
+[Misc Files]
+Item0=yyres.rcResource Scripts
+[RDP Source Files]
+Item0=CustomVariablesForm.dfm
+Item1=About.dfm
+Item2=Preferences.dfm
+Item3=CustomVariables.drc
 [Language]
 ActiveLang=
-ProjectLang=
-RootDir=E:\Program Files (x86)\Borland\Delphi7\Bin\
+ProjectLang=$00000409
+RootDir=
 [Version Info]
 IncludeVerInfo=1
 AutoIncBuild=0
