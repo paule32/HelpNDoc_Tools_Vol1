@@ -898,7 +898,7 @@ object Form1: TForm1
     ParentFont = False
     TabOrder = 4
     object TabSheet1: TTabSheet
-      Caption = 'Variable'#39's :'
+      Caption = 'Workspace'
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
@@ -948,21 +948,62 @@ object Form1: TForm1
             end
           end
           object TabSheet10: TTabSheet
-            Caption = 'Properties'
-            object TypesGrid: TStringGrid
+            Caption = 'Library Items'
+            object ScrollBox23: TScrollBox
               Left = 0
               Top = 0
               Width = 185
               Height = 307
               Align = alClient
-              Color = clSilver
-              ColCount = 3
-              DefaultRowHeight = 21
-              RowCount = 2
-              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColMoving]
               TabOrder = 0
-              OnDrawCell = TypesGridDrawCell
-              OnSelectCell = TypesGridSelectCell
+              object PageControl7: TPageControl
+                Left = 0
+                Top = 0
+                Width = 181
+                Height = 303
+                ActivePage = TabSheet23
+                Align = alClient
+                MultiLine = True
+                TabOrder = 0
+                TabPosition = tpBottom
+                object TabSheet23: TTabSheet
+                  Caption = 'Variables'
+                  object TypesGrid: TStringGrid
+                    Left = 0
+                    Top = 0
+                    Width = 173
+                    Height = 277
+                    Align = alClient
+                    Color = clSilver
+                    ColCount = 3
+                    DefaultRowHeight = 21
+                    RowCount = 2
+                    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColMoving]
+                    TabOrder = 0
+                    OnDrawCell = TypesGridDrawCell
+                    OnSelectCell = TypesGridSelectCell
+                  end
+                end
+                object TabSheet24: TTabSheet
+                  Caption = 'HTML Snippets'
+                  ImageIndex = 1
+                  object StringGrid2: TStringGrid
+                    Left = 0
+                    Top = 0
+                    Width = 173
+                    Height = 277
+                    Align = alClient
+                    Color = clSilver
+                    ColCount = 3
+                    DefaultRowHeight = 21
+                    RowCount = 2
+                    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing]
+                    TabOrder = 0
+                    OnDrawCell = TypesGridDrawCell
+                    OnSelectCell = TypesGridSelectCell
+                  end
+                end
+              end
             end
           end
         end
@@ -1129,13 +1170,14 @@ object Form1: TForm1
               object projectOutput: TStringGrid
                 Left = 288
                 Top = 24
-                Width = 91
+                Width = 85
                 Height = 146
                 ColCount = 1
                 DefaultColWidth = 81
                 FixedCols = 0
                 FixedRows = 0
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goRangeSelect]
+                ScrollBars = ssNone
                 TabOrder = 8
                 RowHeights = (
                   24
@@ -1618,7 +1660,7 @@ object Form1: TForm1
                 TabOrder = 2
               end
               object MemoBox: TSynEdit
-                Left = 3
+                Left = 8
                 Top = 24
                 Width = 343
                 Height = 129
@@ -1979,6 +2021,388 @@ object Form1: TForm1
                 Height = 25
                 Caption = 'Paste'
                 TabOrder = 4
+              end
+            end
+          end
+          object TabSheet25: TTabSheet
+            Caption = 'HTML'
+            ImageIndex = 7
+            object ScrollBox15: TScrollBox
+              Left = 0
+              Top = 0
+              Width = 402
+              Height = 307
+              Align = alClient
+              TabOrder = 0
+              DesignSize = (
+                398
+                303)
+              object Label19: TLabel
+                Left = 8
+                Top = 8
+                Width = 14
+                Height = 13
+                Caption = 'ID:'
+              end
+              object Label22: TLabel
+                Left = 8
+                Top = 48
+                Width = 31
+                Height = 13
+                Caption = 'Name:'
+              end
+              object Label24: TLabel
+                Left = 8
+                Top = 88
+                Width = 56
+                Height = 13
+                Caption = 'Description:'
+              end
+              object Label25: TLabel
+                Left = 8
+                Top = 136
+                Width = 55
+                Height = 13
+                Caption = 'Translation:'
+              end
+              object EditHTMLid: TEdit
+                Left = 8
+                Top = 24
+                Width = 290
+                Height = 21
+                Anchors = [akLeft, akTop, akRight]
+                TabOrder = 0
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+                OnKeyPress = editOnKeyPress
+              end
+              object EditHTMLname: TEdit
+                Left = 8
+                Top = 64
+                Width = 290
+                Height = 21
+                Anchors = [akLeft, akTop, akRight]
+                TabOrder = 1
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+                OnKeyPress = editOnKeyPress
+              end
+              object EditHTMLdesc: TEdit
+                Left = 8
+                Top = 104
+                Width = 290
+                Height = 21
+                Anchors = [akLeft, akTop, akRight]
+                TabOrder = 2
+                OnEnter = editOnEnter
+                OnExit = editOnExit
+                OnKeyPress = editOnKeyPress
+              end
+              object PageControl5: TPageControl
+                Left = 8
+                Top = 152
+                Width = 362
+                Height = 137
+                ActivePage = TabSheet16
+                Anchors = [akLeft, akTop, akRight]
+                TabOrder = 3
+                object TabSheet16: TTabSheet
+                  Caption = 'German'
+                  object ScrollBox18: TScrollBox
+                    Left = 0
+                    Top = 0
+                    Width = 354
+                    Height = 109
+                    Align = alClient
+                    TabOrder = 0
+                    DesignSize = (
+                      350
+                      105)
+                    object Label26: TLabel
+                      Left = 8
+                      Top = 4
+                      Width = 31
+                      Height = 13
+                      Caption = 'Name:'
+                    end
+                    object Label27: TLabel
+                      Left = 8
+                      Top = 44
+                      Width = 56
+                      Height = 13
+                      Caption = 'Description:'
+                    end
+                    object EditHTMLdeuName: TEdit
+                      Left = 8
+                      Top = 19
+                      Width = 258
+                      Height = 21
+                      Anchors = [akLeft, akTop, akRight]
+                      TabOrder = 0
+                      OnEnter = editOnEnter
+                      OnExit = editOnExit
+                      OnKeyPress = editOnKeyPress
+                    end
+                    object EditHTMLdeuDesc: TEdit
+                      Left = 8
+                      Top = 60
+                      Width = 258
+                      Height = 21
+                      Anchors = [akLeft, akTop, akRight]
+                      TabOrder = 1
+                      OnEnter = editOnEnter
+                      OnExit = editOnExit
+                      OnKeyPress = editOnKeyPress
+                    end
+                  end
+                end
+                object TabSheet18: TTabSheet
+                  Caption = 'French'
+                  ImageIndex = 1
+                  object ScrollBox19: TScrollBox
+                    Left = 0
+                    Top = 0
+                    Width = 354
+                    Height = 109
+                    Align = alClient
+                    TabOrder = 0
+                    DesignSize = (
+                      350
+                      105)
+                    object Label28: TLabel
+                      Left = 8
+                      Top = 4
+                      Width = 31
+                      Height = 13
+                      Caption = 'Name:'
+                    end
+                    object Label29: TLabel
+                      Left = 8
+                      Top = 44
+                      Width = 56
+                      Height = 13
+                      Caption = 'Description:'
+                    end
+                    object EditHTMLfreName: TEdit
+                      Left = 8
+                      Top = 19
+                      Width = 254
+                      Height = 21
+                      Anchors = [akLeft, akTop, akRight]
+                      TabOrder = 0
+                      OnEnter = editOnEnter
+                      OnExit = editOnExit
+                      OnKeyPress = editOnKeyPress
+                    end
+                    object EditHTMLfreDesc: TEdit
+                      Left = 8
+                      Top = 60
+                      Width = 254
+                      Height = 21
+                      Anchors = [akLeft, akTop, akRight]
+                      TabOrder = 1
+                      OnEnter = editOnEnter
+                      OnExit = editOnExit
+                      OnKeyPress = editOnKeyPress
+                    end
+                  end
+                end
+                object TabSheet19: TTabSheet
+                  Caption = 'Spain'
+                  ImageIndex = 2
+                  object ScrollBox20: TScrollBox
+                    Left = 0
+                    Top = 0
+                    Width = 354
+                    Height = 109
+                    Align = alClient
+                    TabOrder = 0
+                    DesignSize = (
+                      350
+                      105)
+                    object Label30: TLabel
+                      Left = 8
+                      Top = 4
+                      Width = 31
+                      Height = 13
+                      Caption = 'Name:'
+                    end
+                    object Label31: TLabel
+                      Left = 8
+                      Top = 44
+                      Width = 56
+                      Height = 13
+                      Caption = 'Description:'
+                    end
+                    object EditHTMLespName: TEdit
+                      Left = 8
+                      Top = 19
+                      Width = 254
+                      Height = 21
+                      Anchors = [akLeft, akTop, akRight]
+                      TabOrder = 0
+                      OnEnter = editOnEnter
+                      OnExit = editOnExit
+                      OnKeyPress = editOnKeyPress
+                    end
+                    object EditHTMLespDesc: TEdit
+                      Left = 8
+                      Top = 60
+                      Width = 254
+                      Height = 21
+                      Anchors = [akLeft, akTop, akRight]
+                      TabOrder = 1
+                      OnEnter = editOnEnter
+                      OnExit = editOnExit
+                      OnKeyPress = editOnKeyPress
+                    end
+                  end
+                end
+              end
+              object Button8: TButton
+                Left = 312
+                Top = 21
+                Width = 75
+                Height = 25
+                Caption = 'Add'
+                TabOrder = 4
+                OnClick = varButtonAddClick
+              end
+              object Button33: TButton
+                Left = 312
+                Top = 61
+                Width = 75
+                Height = 25
+                Caption = 'Delete'
+                TabOrder = 5
+                OnClick = varButtonDeleteClick
+              end
+            end
+          end
+          object TabSheet26: TTabSheet
+            Caption = 'Text'
+            ImageIndex = 8
+            object ScrollBox21: TScrollBox
+              Left = 0
+              Top = 0
+              Width = 402
+              Height = 307
+              Align = alClient
+              TabOrder = 0
+              DesignSize = (
+                398
+                303)
+              object Label21: TLabel
+                Left = 8
+                Top = 8
+                Width = 21
+                Height = 13
+                Caption = 'Text'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -11
+                Font.Name = 'MS Sans Serif'
+                Font.Style = []
+                ParentFont = False
+              end
+              object JvArrowButton18: TJvArrowButton
+                Left = 112
+                Top = 176
+                Width = 89
+                Height = 25
+                Anchors = [akLeft, akBottom]
+                DropDown = PopupMenu1
+                Caption = 'Load'
+                FlatArrowColor = 8454016
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'MS Sans Serif'
+                Font.Style = []
+                FillFont.Charset = DEFAULT_CHARSET
+                FillFont.Color = clWindowText
+                FillFont.Height = -11
+                FillFont.Name = 'MS Sans Serif'
+                FillFont.Style = []
+                ParentFont = False
+              end
+              object JvArrowButton19: TJvArrowButton
+                Left = 112
+                Top = 208
+                Width = 89
+                Height = 25
+                Anchors = [akLeft, akBottom]
+                DropDown = PopupMenu1
+                Caption = 'Save'
+                FlatArrowColor = 8454016
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'MS Sans Serif'
+                Font.Style = []
+                FillFont.Charset = DEFAULT_CHARSET
+                FillFont.Color = clWindowText
+                FillFont.Height = -11
+                FillFont.Name = 'MS Sans Serif'
+                FillFont.Style = []
+                ParentFont = False
+              end
+              object SynEdit5: TSynEdit
+                Left = 8
+                Top = 24
+                Width = 338
+                Height = 137
+                Anchors = [akLeft, akTop, akRight, akBottom]
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Consolas'
+                Font.Pitch = fpFixed
+                Font.Style = []
+                TabOrder = 0
+                Gutter.BorderColor = clBlack
+                Gutter.Font.Charset = ANSI_CHARSET
+                Gutter.Font.Color = clBlack
+                Gutter.Font.Height = -12
+                Gutter.Font.Name = 'Consolas'
+                Gutter.Font.Style = []
+                Gutter.LeftOffset = 0
+                Gutter.ModificationColorModified = 8421631
+                Gutter.ShowLineNumbers = True
+                Gutter.ShowModification = True
+                Gutter.Gradient = True
+                Gutter.GradientStartColor = clGreen
+                Gutter.GradientEndColor = clYellow
+                Highlighter = SynHTMLSyn1
+                Lines.UnicodeStrings = 'SynEdit1'
+                FontSmoothing = fsmNone
+              end
+              object Button30: TButton
+                Left = 8
+                Top = 176
+                Width = 89
+                Height = 25
+                Anchors = [akLeft, akBottom]
+                Caption = 'Clear'
+                TabOrder = 1
+              end
+              object Button31: TButton
+                Left = 8
+                Top = 208
+                Width = 89
+                Height = 25
+                Anchors = [akLeft, akBottom]
+                Caption = 'Copy'
+                TabOrder = 2
+              end
+              object Button32: TButton
+                Left = 8
+                Top = 240
+                Width = 89
+                Height = 25
+                Anchors = [akLeft, akBottom]
+                Caption = 'Paste'
+                TabOrder = 3
               end
             end
           end
@@ -2796,423 +3220,6 @@ object Form1: TForm1
           Height = 25
           Caption = 'Clear'
           TabOrder = 7
-        end
-      end
-    end
-    object TabSheet14: TTabSheet
-      Caption = 'HTML Snippet'
-      ImageIndex = 5
-      object ScrollBox9: TScrollBox
-        Left = 0
-        Top = 0
-        Width = 610
-        Height = 339
-        Align = alClient
-        TabOrder = 0
-        object Splitter6: TSplitter
-          Left = 193
-          Top = 0
-          Height = 335
-        end
-        object PageControl4: TPageControl
-          Left = 0
-          Top = 0
-          Width = 193
-          Height = 335
-          ActivePage = TabSheet11
-          Align = alLeft
-          Constraints.MinWidth = 130
-          TabOrder = 0
-          object TabSheet11: TTabSheet
-            Caption = 'Properties'
-            object StringGrid1: TStringGrid
-              Left = 0
-              Top = 0
-              Width = 185
-              Height = 307
-              Align = alClient
-              Color = clSilver
-              ColCount = 3
-              DefaultRowHeight = 21
-              RowCount = 2
-              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing]
-              TabOrder = 0
-              OnDrawCell = TypesGridDrawCell
-              OnSelectCell = TypesGridSelectCell
-            end
-          end
-        end
-        object PageControl6: TPageControl
-          Left = 196
-          Top = 0
-          Width = 410
-          Height = 335
-          ActivePage = TabSheet20
-          Align = alClient
-          TabOrder = 1
-          object TabSheet17: TTabSheet
-            Caption = 'Setting'#39's:'
-            object ScrollBox15: TScrollBox
-              Left = 0
-              Top = 0
-              Width = 402
-              Height = 307
-              Align = alClient
-              TabOrder = 0
-              DesignSize = (
-                398
-                303)
-              object Label19: TLabel
-                Left = 8
-                Top = 8
-                Width = 14
-                Height = 13
-                Caption = 'ID:'
-              end
-              object Label22: TLabel
-                Left = 8
-                Top = 48
-                Width = 31
-                Height = 13
-                Caption = 'Name:'
-              end
-              object Label24: TLabel
-                Left = 8
-                Top = 88
-                Width = 56
-                Height = 13
-                Caption = 'Description:'
-              end
-              object Label25: TLabel
-                Left = 8
-                Top = 136
-                Width = 55
-                Height = 13
-                Caption = 'Translation:'
-              end
-              object EditHTMLid: TEdit
-                Left = 8
-                Top = 24
-                Width = 290
-                Height = 21
-                Anchors = [akLeft, akTop, akRight]
-                TabOrder = 0
-                OnEnter = editOnEnter
-                OnExit = editOnExit
-                OnKeyPress = editOnKeyPress
-              end
-              object EditHTMLname: TEdit
-                Left = 8
-                Top = 64
-                Width = 290
-                Height = 21
-                Anchors = [akLeft, akTop, akRight]
-                TabOrder = 1
-                OnEnter = editOnEnter
-                OnExit = editOnExit
-                OnKeyPress = editOnKeyPress
-              end
-              object EditHTMLdesc: TEdit
-                Left = 8
-                Top = 104
-                Width = 290
-                Height = 21
-                Anchors = [akLeft, akTop, akRight]
-                TabOrder = 2
-                OnEnter = editOnEnter
-                OnExit = editOnExit
-                OnKeyPress = editOnKeyPress
-              end
-              object PageControl5: TPageControl
-                Left = 8
-                Top = 152
-                Width = 362
-                Height = 137
-                ActivePage = TabSheet16
-                Anchors = [akLeft, akTop, akRight]
-                TabOrder = 3
-                object TabSheet16: TTabSheet
-                  Caption = 'German'
-                  object ScrollBox18: TScrollBox
-                    Left = 0
-                    Top = 0
-                    Width = 354
-                    Height = 109
-                    Align = alClient
-                    TabOrder = 0
-                    DesignSize = (
-                      350
-                      105)
-                    object Label26: TLabel
-                      Left = 8
-                      Top = 4
-                      Width = 31
-                      Height = 13
-                      Caption = 'Name:'
-                    end
-                    object Label27: TLabel
-                      Left = 8
-                      Top = 44
-                      Width = 56
-                      Height = 13
-                      Caption = 'Description:'
-                    end
-                    object EditHTMLdeuName: TEdit
-                      Left = 8
-                      Top = 19
-                      Width = 258
-                      Height = 21
-                      Anchors = [akLeft, akTop, akRight]
-                      TabOrder = 0
-                      OnEnter = editOnEnter
-                      OnExit = editOnExit
-                      OnKeyPress = editOnKeyPress
-                    end
-                    object EditHTMLdeuDesc: TEdit
-                      Left = 8
-                      Top = 60
-                      Width = 258
-                      Height = 21
-                      Anchors = [akLeft, akTop, akRight]
-                      TabOrder = 1
-                      OnEnter = editOnEnter
-                      OnExit = editOnExit
-                      OnKeyPress = editOnKeyPress
-                    end
-                  end
-                end
-                object TabSheet18: TTabSheet
-                  Caption = 'French'
-                  ImageIndex = 1
-                  object ScrollBox19: TScrollBox
-                    Left = 0
-                    Top = 0
-                    Width = 354
-                    Height = 109
-                    Align = alClient
-                    TabOrder = 0
-                    DesignSize = (
-                      350
-                      105)
-                    object Label28: TLabel
-                      Left = 8
-                      Top = 4
-                      Width = 31
-                      Height = 13
-                      Caption = 'Name:'
-                    end
-                    object Label29: TLabel
-                      Left = 8
-                      Top = 44
-                      Width = 56
-                      Height = 13
-                      Caption = 'Description:'
-                    end
-                    object EditHTMLfreName: TEdit
-                      Left = 8
-                      Top = 19
-                      Width = 258
-                      Height = 21
-                      Anchors = [akLeft, akTop, akRight]
-                      TabOrder = 0
-                      OnEnter = editOnEnter
-                      OnExit = editOnExit
-                      OnKeyPress = editOnKeyPress
-                    end
-                    object EditHTMLfreDesc: TEdit
-                      Left = 8
-                      Top = 60
-                      Width = 258
-                      Height = 21
-                      Anchors = [akLeft, akTop, akRight]
-                      TabOrder = 1
-                      OnEnter = editOnEnter
-                      OnExit = editOnExit
-                      OnKeyPress = editOnKeyPress
-                    end
-                  end
-                end
-                object TabSheet19: TTabSheet
-                  Caption = 'Spain'
-                  ImageIndex = 2
-                  object ScrollBox20: TScrollBox
-                    Left = 0
-                    Top = 0
-                    Width = 354
-                    Height = 109
-                    Align = alClient
-                    TabOrder = 0
-                    DesignSize = (
-                      350
-                      105)
-                    object Label30: TLabel
-                      Left = 8
-                      Top = 4
-                      Width = 31
-                      Height = 13
-                      Caption = 'Name:'
-                    end
-                    object Label31: TLabel
-                      Left = 8
-                      Top = 44
-                      Width = 56
-                      Height = 13
-                      Caption = 'Description:'
-                    end
-                    object EditHTMLespName: TEdit
-                      Left = 8
-                      Top = 19
-                      Width = 258
-                      Height = 21
-                      Anchors = [akLeft, akTop, akRight]
-                      TabOrder = 0
-                      OnEnter = editOnEnter
-                      OnExit = editOnExit
-                      OnKeyPress = editOnKeyPress
-                    end
-                    object EditHTMLespDesc: TEdit
-                      Left = 8
-                      Top = 60
-                      Width = 258
-                      Height = 21
-                      Anchors = [akLeft, akTop, akRight]
-                      TabOrder = 1
-                      OnEnter = editOnEnter
-                      OnExit = editOnExit
-                      OnKeyPress = editOnKeyPress
-                    end
-                  end
-                end
-              end
-            end
-          end
-          object TabSheet20: TTabSheet
-            Caption = 'Text'
-            ImageIndex = 1
-            object ScrollBox21: TScrollBox
-              Left = 0
-              Top = 0
-              Width = 402
-              Height = 307
-              Align = alClient
-              TabOrder = 0
-              DesignSize = (
-                398
-                303)
-              object Label21: TLabel
-                Left = 8
-                Top = 8
-                Width = 21
-                Height = 13
-                Caption = 'Text'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'MS Sans Serif'
-                Font.Style = []
-                ParentFont = False
-              end
-              object JvArrowButton18: TJvArrowButton
-                Left = 112
-                Top = 176
-                Width = 89
-                Height = 25
-                Anchors = [akLeft, akBottom]
-                DropDown = PopupMenu1
-                Caption = 'Load'
-                FlatArrowColor = 8454016
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'MS Sans Serif'
-                Font.Style = []
-                FillFont.Charset = DEFAULT_CHARSET
-                FillFont.Color = clWindowText
-                FillFont.Height = -11
-                FillFont.Name = 'MS Sans Serif'
-                FillFont.Style = []
-                ParentFont = False
-              end
-              object JvArrowButton19: TJvArrowButton
-                Left = 112
-                Top = 208
-                Width = 89
-                Height = 25
-                Anchors = [akLeft, akBottom]
-                DropDown = PopupMenu1
-                Caption = 'Save'
-                FlatArrowColor = 8454016
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'MS Sans Serif'
-                Font.Style = []
-                FillFont.Charset = DEFAULT_CHARSET
-                FillFont.Color = clWindowText
-                FillFont.Height = -11
-                FillFont.Name = 'MS Sans Serif'
-                FillFont.Style = []
-                ParentFont = False
-              end
-              object SynEdit5: TSynEdit
-                Left = 8
-                Top = 24
-                Width = 338
-                Height = 137
-                Anchors = [akLeft, akTop, akRight, akBottom]
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -12
-                Font.Name = 'Consolas'
-                Font.Pitch = fpFixed
-                Font.Style = []
-                TabOrder = 0
-                Gutter.BorderColor = clBlack
-                Gutter.Font.Charset = ANSI_CHARSET
-                Gutter.Font.Color = clBlack
-                Gutter.Font.Height = -12
-                Gutter.Font.Name = 'Consolas'
-                Gutter.Font.Style = []
-                Gutter.LeftOffset = 0
-                Gutter.ModificationColorModified = 8421631
-                Gutter.ShowLineNumbers = True
-                Gutter.ShowModification = True
-                Gutter.Gradient = True
-                Gutter.GradientStartColor = clGreen
-                Gutter.GradientEndColor = clYellow
-                Highlighter = SynHTMLSyn1
-                Lines.UnicodeStrings = 'SynEdit1'
-                FontSmoothing = fsmNone
-              end
-              object Button30: TButton
-                Left = 8
-                Top = 176
-                Width = 89
-                Height = 25
-                Anchors = [akLeft, akBottom]
-                Caption = 'Clear'
-                TabOrder = 1
-              end
-              object Button31: TButton
-                Left = 8
-                Top = 208
-                Width = 89
-                Height = 25
-                Anchors = [akLeft, akBottom]
-                Caption = 'Copy'
-                TabOrder = 2
-              end
-              object Button32: TButton
-                Left = 8
-                Top = 240
-                Width = 89
-                Height = 25
-                Anchors = [akLeft, akBottom]
-                Caption = 'Paste'
-                TabOrder = 3
-              end
-            end
-          end
         end
       end
     end

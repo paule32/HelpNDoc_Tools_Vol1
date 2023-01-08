@@ -47,7 +47,6 @@ type
     Splitter4: TSplitter;
     projectPageControl: TPageControl;
     TabSheet10: TTabSheet;
-    TypesGrid: TStringGrid;
     cvPageControl: TPageControl;
     TabSheet2: TTabSheet;
     ScrollBox2: TScrollBox;
@@ -189,50 +188,6 @@ type
     EditCATconnect: TEdit;
     Button7: TButton;
     Button29: TButton;
-    TabSheet14: TTabSheet;
-    ScrollBox9: TScrollBox;
-    Splitter6: TSplitter;
-    PageControl4: TPageControl;
-    TabSheet11: TTabSheet;
-    StringGrid1: TStringGrid;
-    PageControl6: TPageControl;
-    TabSheet17: TTabSheet;
-    ScrollBox15: TScrollBox;
-    Label19: TLabel;
-    Label22: TLabel;
-    Label24: TLabel;
-    Label25: TLabel;
-    EditHTMLid: TEdit;
-    EditHTMLname: TEdit;
-    EditHTMLdesc: TEdit;
-    PageControl5: TPageControl;
-    TabSheet16: TTabSheet;
-    ScrollBox18: TScrollBox;
-    Label26: TLabel;
-    Label27: TLabel;
-    EditHTMLdeuName: TEdit;
-    EditHTMLdeuDesc: TEdit;
-    TabSheet18: TTabSheet;
-    ScrollBox19: TScrollBox;
-    Label28: TLabel;
-    Label29: TLabel;
-    EditHTMLfreName: TEdit;
-    EditHTMLfreDesc: TEdit;
-    TabSheet19: TTabSheet;
-    ScrollBox20: TScrollBox;
-    Label30: TLabel;
-    Label31: TLabel;
-    EditHTMLespName: TEdit;
-    EditHTMLespDesc: TEdit;
-    TabSheet20: TTabSheet;
-    ScrollBox21: TScrollBox;
-    Label21: TLabel;
-    JvArrowButton18: TJvArrowButton;
-    JvArrowButton19: TJvArrowButton;
-    SynEdit5: TSynEdit;
-    Button30: TButton;
-    Button31: TButton;
-    Button32: TButton;
     EnumAddButton: TButton;
     enumDeleteButton: TButton;
     SpeedButton1: TSpeedButton;
@@ -303,6 +258,51 @@ type
     DeleteProjectItem1: TMenuItem;
     projectOutput: TStringGrid;
     Label43: TLabel;
+    ScrollBox23: TScrollBox;
+    PageControl7: TPageControl;
+    TabSheet23: TTabSheet;
+    TabSheet24: TTabSheet;
+    TypesGrid: TStringGrid;
+    StringGrid2: TStringGrid;
+    TabSheet25: TTabSheet;
+    ScrollBox15: TScrollBox;
+    Label19: TLabel;
+    Label22: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    EditHTMLid: TEdit;
+    EditHTMLname: TEdit;
+    EditHTMLdesc: TEdit;
+    PageControl5: TPageControl;
+    TabSheet16: TTabSheet;
+    ScrollBox18: TScrollBox;
+    Label26: TLabel;
+    Label27: TLabel;
+    EditHTMLdeuName: TEdit;
+    EditHTMLdeuDesc: TEdit;
+    TabSheet18: TTabSheet;
+    ScrollBox19: TScrollBox;
+    Label28: TLabel;
+    Label29: TLabel;
+    EditHTMLfreName: TEdit;
+    EditHTMLfreDesc: TEdit;
+    TabSheet19: TTabSheet;
+    ScrollBox20: TScrollBox;
+    Label30: TLabel;
+    Label31: TLabel;
+    EditHTMLespName: TEdit;
+    EditHTMLespDesc: TEdit;
+    Button8: TButton;
+    Button33: TButton;
+    TabSheet26: TTabSheet;
+    ScrollBox21: TScrollBox;
+    Label21: TLabel;
+    JvArrowButton18: TJvArrowButton;
+    JvArrowButton19: TJvArrowButton;
+    SynEdit5: TSynEdit;
+    Button30: TButton;
+    Button31: TButton;
+    Button32: TButton;
     procedure spButtonFile___Click(Sender: TObject);
     procedure spButtonEdit___Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -453,7 +453,7 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 var
   cursorOld: TCursor;
-  rows : Integer;
+  rows, i: Integer;
 begin
   cursorOld := Screen.Cursor;
   Screen.Cursor := crHourGlass;
@@ -467,6 +467,9 @@ begin
   HideCvPageTabSheets;
   cvPageControl.Pages[0].TabVisible := true;
   cvPageControl.Pages[0].Enabled := true;
+
+  for i := 1 to 5 do
+  PageControl1.Pages[i].TabVisible := false;
 
   with TypesGrid do
   begin
@@ -1222,7 +1225,12 @@ begin
 end;
 
 procedure TForm1.projectsGridDblClick(Sender: TObject);
+var
+  i: Integer;
 begin
+  for i := 1 to 5 do
+  PageControl1.Pages[i].TabVisible := true;
+
   projectPageControl.Pages[1].TabVisible := true;
   projectPageControl.ActivePageIndex := 1;
 
