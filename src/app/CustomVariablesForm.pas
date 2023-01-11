@@ -1,17 +1,26 @@
+// -------------------------------------------------------------------------
+// File: Form.pas
+// Desc: HelpNDoc - Tools for Help authoring.
+//
+// Code: (c) 2023 by Jens Kallup - paule32
+//       all rights reserved.
+// -------------------------------------------------------------------------
 unit CustomVariablesForm;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Buttons, ExtCtrls, ToolWin, ComCtrls, StdCtrls, Menus,
-  ShellApi, SQLite3, SQLite3Wrap, About, Preferences, Grids, Mask,
+  Buttons, ExtCtrls, ToolWin, ComCtrls, StdCtrls, Menus, ShellApi, Grids,
+  Mask, IniFiles, StrUtils, Dialogs,
   JvExExtCtrls, JvExtComponent, JvPanel, JvOfficeColorPanel, SynEdit,
   SynHighlighterJScript, SynHighlighterHtml, SynEditHighlighter,
   SynHighlighterCSS, JvGradientCaption, JvComponentBase, JvComCtrls,
   JvExComCtrls, ImgList, JvExButtons, JvBitBtn, JvExStdCtrls, JvListBox,
-  JvExControls, JvArrowButton, JvCaptionButton, MyHintWindow, Dialogs,
-  JvAppEvent, JvExGrids, JvStringGrid, JvBalloonHint, JvMenus;
+  JvExControls, JvArrowButton, JvCaptionButton, JvAppEvent, JvExGrids,
+  JvStringGrid, JvBalloonHint, JvMenus, JvFormToHtml, JvSpeedButton,
+  JvDesignSurface, JvDesignUtils, JvInspector,
+  SQLite3, SQLite3Wrap, About, Preferences;
 
 type
   TForm1 = class(TForm)
@@ -192,7 +201,6 @@ type
     enumDeleteButton: TButton;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
-    HintTimer: TTimer;
     JvAppEvents1: TJvAppEvents;
     Panel3: TPanel;
     TabSheet21: TTabSheet;
@@ -235,20 +243,20 @@ type
     ScrollBox22: TScrollBox;
     SpeedButton3: TSpeedButton;
     Label35: TLabel;
-    Edit1: TEdit;
+    projectEdit1: TEdit;
     Label36: TLabel;
-    Edit2: TEdit;
+    projectEdit2: TEdit;
     Label37: TLabel;
-    Edit3: TEdit;
+    projectEdit4: TEdit;
     Label38: TLabel;
-    Edit4: TEdit;
+    projectEdit6: TEdit;
     Label39: TLabel;
-    Edit5: TEdit;
+    projectEdit5: TEdit;
     Label40: TLabel;
-    Edit6: TEdit;
+    projectEdit3: TEdit;
     Label41: TLabel;
-    Edit7: TEdit;
-    Memo1: TMemo;
+    projectEdit7: TEdit;
+    projectEdit8: TMemo;
     Label42: TLabel;
     Image1: TImage;
     projectsPopupMenu: TJvPopupMenu;
@@ -262,7 +270,6 @@ type
     PageControl7: TPageControl;
     TabSheet23: TTabSheet;
     TabSheet24: TTabSheet;
-    TypesGrid: TStringGrid;
     StringGrid2: TStringGrid;
     TabSheet25: TTabSheet;
     ScrollBox15: TScrollBox;
@@ -296,13 +303,24 @@ type
     Button33: TButton;
     TabSheet26: TTabSheet;
     ScrollBox21: TScrollBox;
-    Label21: TLabel;
-    JvArrowButton18: TJvArrowButton;
-    JvArrowButton19: TJvArrowButton;
     SynEdit5: TSynEdit;
+    TypesGrid: TJvStringGrid;
+    Label44: TLabel;
+    JvFormToHtml1: TJvFormToHtml;
     Button30: TButton;
-    Button31: TButton;
-    Button32: TButton;
+    PageControl4: TPageControl;
+    TabSheet11: TTabSheet;
+    TabSheet14: TTabSheet;
+    PageScroller1: TPageScroller;
+    propertiesTabSheet: TTabSheet;
+    JvInspector1: TJvInspector;
+    JvInspectorBorlandPainter1: TJvInspectorBorlandPainter;
+    JvDesignScrollBox1: TJvDesignScrollBox;
+    JvSpeedButton1: TJvSpeedButton;
+    JvSpeedButton2: TJvSpeedButton;
+    JvSpeedButton3: TJvSpeedButton;
+    JvInspectorDotNETPainter1: TJvInspectorDotNETPainter;
+    htmlDesignPanel: TJvDesignPanel;
     procedure spButtonFile___Click(Sender: TObject);
     procedure spButtonEdit___Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -355,7 +373,6 @@ type
       Shift: TShiftState);
     procedure EnumAddButtonClick(Sender: TObject);
     procedure enumButtonClearClick(Sender: TObject);
-    procedure HintTimerTimer(Sender: TObject);
     procedure JvAppEvents1Hint(Sender: TObject);
     procedure enumDeleteButtonClick(Sender: TObject);
     procedure enumButtonLoadClick(Sender: TObject);
@@ -367,23 +384,67 @@ type
     procedure projectPageControlChange(Sender: TObject);
     procedure projectsGridDblClick(Sender: TObject);
     procedure cvPageControlChange(Sender: TObject);
+    procedure OpenexistingProject1Click(Sender: TObject);
+    procedure CreatenewProject1Click(Sender: TObject);
+    procedure projectsGridMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure projectsGridMouseEnter(Sender: TObject);
+    procedure projectsGridMouseLeave(Sender: TObject);
+    procedure Button30Click(Sender: TObject);
+    function JvAppEvents1Help(Command: Word; Data: Integer;
+      var CallHelp: Boolean): Boolean;
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure htmlDesignPanelPaint(Sender: TObject);
+    procedure projectsGridClick(Sender: TObject);
+    procedure projectEdit1KeyPress(Sender: TObject; var Key: Char);
+    procedure projectsGridSelectCell(Sender: TObject; ACol, ARow: Integer;
+      var CanSelect: Boolean);
+    procedure projectEdit2KeyPress(Sender: TObject; var Key: Char);
+    procedure projectEdit3KeyPress(Sender: TObject; var Key: Char);
+    procedure projectEdit4KeyPress(Sender: TObject; var Key: Char);
+    procedure projectEdit5KeyPress(Sender: TObject; var Key: Char);
+    procedure projectEdit6KeyPress(Sender: TObject; var Key: Char);
+    procedure projectEdit7KeyPress(Sender: TObject; var Key: Char);
   private
-    DB   : TSQLite3Database;
-    Stmt : TSQLite3Statement;
+    DB         : TSQLite3Database;
+    projectsDB : TSQLite3Database;
+    Stmt       : TSQLite3Statement;
+
+    appINI     : TIniFile;
+    dataStr    : String;
+
+    projectDataField    : Array [0..128,0..2] of String;
+    projectCount        : Integer;
+    projectHeader       : String;
+    projectFocused      : Boolean;
+    projectDataModified : Boolean;
+
+    inspCat: TJvInspectorCustomCategoryItem;
 
     Path  : String;
     idxCmp: String;
     isModified: Boolean;
 
-    ApplicationBalloonHint: TMyHintWindow;
+
 
     function  CheckOpenTrue(dlg: TOpenDialog; flag: Byte): Boolean;
-    procedure addPopupMenu(menuObject: TJvPopupMenu);
-    procedure DeleteRow(ARow: Integer);
+    procedure AddNewProject(num: Integer);
+    procedure AddPopupMenu(menuObject: TJvPopupMenu);
+    procedure DeleteRow(AGrid: TJvStringGrid; ARow: Integer);
     procedure HideCvPageTabSheets;
     procedure PopMenu(Actor: TPopupMenu);
     procedure PrepareDataBase(name: String);
+    procedure ProjectsDBcreate;
+    procedure SaveProject;
+    procedure SelectProject(num: Integer);
+    procedure ShowCellHint(AGrid: TJvStringGrid; x,y: Integer);
     procedure ShowCvPageTabSheet(name: TComponentName);
+    procedure UpdateProjectField(
+      field    : String;
+      text     : TObject;
+      var key  : Char;
+      nextFocus: TObject);
   public
   end;
 
@@ -394,13 +455,15 @@ implementation
 
 {$R *.dfm}
 
+uses HtmHelp;
+
 // HelpNDoc image => visit home page
-procedure TForm1.DeleteRow(ARow: Integer);
+procedure TForm1.DeleteRow(AGrid: TJvStringGrid; ARow: Integer);
 var i: Integer;
 begin
-  for i := ARow to TypesGrid.RowCount - 2 do
-  TypesGrid.Rows[i].Assign(TypesGrid.Rows[i + 1]);
-  TypesGrid.RowCount := TypesGrid.RowCount - 1;
+  for i := ARow to     AGrid.RowCount - 2 do
+  AGrid.Rows[i].Assign(AGrid.Rows[i + 1]);
+  AGrid.RowCount := AGrid.RowCount - 1;
 end;
 
 // helper for smaller code
@@ -422,88 +485,255 @@ procedure TForm1.PrepareDataBase(name: String);
 var
   cursorOld : TCursor;
 begin
-  cursorOld := Screen.Cursor;
-  Screen.Cursor := crHourGlass;
-  isModified := false;
+  try
+    cursorOld := Screen.Cursor;
+    Screen.Cursor := crHourGlass;
+    isModified := false;
 
-  DB.Close;
-  DB.Open(name);
-  DB.Execute('CREATE TABLE IF NOT EXISTS customvariables (' +
-  'id     INTEGER' + ',' +   // record id #
-  'varid  TEXT'    + ',' +   // id of variable
-  'name   TEXT'    + ',' +   // name of variable
-  'desc   TEXT'    + ',' +   // description: default: english
-  'ndeu   TEXT'    + ',' +   // name: german
-  'ddeu   TEXT'    + ',' +   // description: german
-  'nfra   TEXT'    + ',' +   // name: french
-  'dfra   TEXT'    + ',' +   // description: frenche
-  'nesp   TEXT'    + ',' +   // name: spain
-  'desp   TEXT'    + ',' +   // description: spain
-  'deftxt TEXT'    + ',' +   // default String
-  'defenu TEXT'    + ',' +   // defailt enum
-  'defcol TEXT'    + ',' +   // default color
-  'defbol INTEGER' + ',' +   // default bool
-  'memo   TEXT'    + ',' +   // default memo field
-  'type   INTEGER' + ',' +   // type of variable
-  'tyid   INTEGER' + ')' );  // refers to data of type
+    begin
+      DB.Close;
+      DB.Open(name);
+      DB.Execute('CREATE TABLE IF NOT EXISTS customvariables (' +
+      'id     INTEGER' + ',' +   // record id #
+      'varid  TEXT'    + ',' +   // id of variable
+      'name   TEXT'    + ',' +   // name of variable
+      'desc   TEXT'    + ',' +   // description: default: english
+      'ndeu   TEXT'    + ',' +   // name: german
+      'ddeu   TEXT'    + ',' +   // description: german
+      'nfra   TEXT'    + ',' +   // name: french
+      'dfra   TEXT'    + ',' +   // description: frenche
+      'nesp   TEXT'    + ',' +   // name: spain
+      'desp   TEXT'    + ',' +   // description: spain
+      'deftxt TEXT'    + ',' +   // default String
+      'defenu TEXT'    + ',' +   // defailt enum
+      'defcol TEXT'    + ',' +   // default color
+      'defbol INTEGER' + ',' +   // default bool
+      'memo   TEXT'    + ',' +   // default memo field
+      'type   INTEGER' + ',' +   // type of variable
+      'tyid   INTEGER' + ')' );  // refers to data of type
+    end;
+    Screen.Cursor := cursorOld;
+  except
+    on E: Exception do
+    begin
+      Screen.Cursor := cursorOld;
+      Application.MessageBox(PChar(
+      'Exception:' + #13#10 + E.Message),PChar(
+      'Exception'),MB_OK);
+      Close;
+      Application.Terminate;
+    end;
+  end;
+end;
 
-  Screen.Cursor := cursorOld;
+procedure TForm1.projectsDBcreate;
+begin
+//projectsDB.Execute('DROP   TABLE data');
+  projectsDB.Execute('CREATE TABLE IF NOT EXISTS data (' +
+  'id        INTEGER' + ',' + // record id #
+  'name      TEXT'    + ',' + // name of the project
+  'path      TEXT'    + ',' + // path to ...
+  'title     TEXT'    + ',' + // title ...
+  'author    TEXT'    + ',' + // author ...
+  'version   TEXT'    + ',' + // version ...
+  'copyright TEXT'    + ',' + // copyright
+  'summary   TEXT'    + ',' + // summary
+  'comment   TEXT'    + ')'); // comment
+end;
+
+procedure TForm1.AddNewProject(num: Integer);
+begin
+  Stmt := projectsDB.Prepare('INSERT INTO data ' +
+  '(id,name,path) VALUES (?,?,?)');
+  Stmt.BindInt ( 1, num);
+  Stmt.BindText( 2, 'Unamed Projekt');
+  Stmt.BindText( 3, 'C:\tmp');
+  Stmt.Step;
+
+  SelectProject(num);
+end;
+
+procedure TForm1.SelectProject(num: Integer);
+begin
+  Stmt := projectsDB.Prepare(
+  'SELECT * FROM data WHERE id=' +
+  IntToStr(num));
+  Stmt.Step;
+
+  projectDataField[projectCount,0] := Stmt.ColumnText(1);
+  projectDataField[projectCount,1] := Stmt.ColumnText(2);
+
+  projectEdit1.Text := Stmt.ColumnText(1);
+  projectEdit2.Text := Stmt.ColumnText(2);
+  projectEdit3.Text := Stmt.ColumnText(3);
+  projectEdit4.Text := Stmt.ColumnText(4);
+  projectEdit5.Text := Stmt.ColumnText(5);
+  projectEdit6.Text := Stmt.ColumnText(6);
+  projectEdit7.Text := Stmt.ColumnText(7);
+  projectEdit8.Text := Stmt.ColumnText(8);
+end;
+
+procedure TForm1.SaveProject;
+begin
+  if Application.MessageBox(PChar(
+  'The data of this Project have been modified.' + #13#10 +
+  'Would You save the data Informations ?'),PChar(
+  'Warning'),MB_YESNO) = ID_NO then
+  exit;
+
+  Stmt := projectsDB.Prepare('UPDATE data SET ' +
+  'name      = "' + projectEdit1.Text + '",' + // name of the project
+  'path      = "' + projectEdit2.Text + '",' + // path to ...
+  'title     = "' + projectEdit3.Text + '",' + // title ...
+  'author    = "' + projectEdit4.Text + '",' + // author ...
+  'version   = "' + projectEdit5.Text + '",' + // version ...
+  'copyright = "' + projectEdit6.Text + '",' + // copyright
+  'summary   = "' + projectEdit7.Text + '",' + // summary
+  'comment   = "' + projectEdit8.Text + '" ' + // comment
+  'WHERE id  =  ' +
+  IntToStr(projectsGrid.Row + 1));
+  Stmt.Step;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 var
   cursorOld: TCursor;
-  rows, i: Integer;
+  rows,i: Integer;
+  dStr: String;
 begin
-  cursorOld := Screen.Cursor;
-  Screen.Cursor := crHourGlass;
+  try
+    cursorOld := Screen.Cursor;
+    Screen.Cursor := crHourGlass;
 
-  ApplicationBalloonHint := TMyHintWindow.Create(Form1);
-  ApplicationBalloonHint.Parent := Form1;
+    with htmlDesignPanel do
+    begin
+      Surface.Active := true;
+      Width := Screen.Width;
+      Height := Screen.Height;
+      Color := clBtnFace;
+      DrawRules := true;
+      Clear;
+      Invalidate;
+    end;
 
-  projectPageControl.ActivePageIndex   := 0;
-  projectPageControl.Pages[1].TabVisible := false;
+    projectPageControl.ActivePageIndex   := 0;
+    projectPageControl.Pages[1].TabVisible := false;
+    projectPageControl.Pages[2].TabVisible := false;
 
-  HideCvPageTabSheets;
-  cvPageControl.Pages[0].TabVisible := true;
-  cvPageControl.Pages[0].Enabled := true;
+    HideCvPageTabSheets;
+    cvPageControl.Pages[0].TabVisible := true;
+    cvPageControl.Pages[0].Enabled := true;
 
-  for i := 1 to 5 do
-  PageControl1.Pages[i].TabVisible := false;
+    for i := 1 to 5 do
+    PageControl1.Pages[i].TabVisible := false;
 
-  with TypesGrid do
-  begin
-    ColWidths[0] := 24;
-    ColWidths[1] := 132;
-    ColWidths[2] := 100;
+    with TypesGrid do
+    begin
+      ColWidths[0] := 24;
+      ColWidths[1] := 132;
+      ColWidths[2] := 100;
 
-    Cells[1,0] := 'Name:';
-    Cells[2,0] := 'ID:';
-  end;
+      Cells[1,0] := 'Name:';
+      Cells[2,0] := 'ID:';
+    end;
 
-  Path := ExtractFilePath(Application.ExeName) + 'wrap.db';
-  DB   := TSQLite3Database.Create;
+    // --------------------------------------------------------
+    // prepare database:
+    // first, we look, if .ini file exists; then search
+    // for the projects.db file path. If not found, get
+    // Application.ExeName path.
+    // --------------------------------------------------------
+    Path := ExtractFilePath(Application.ExeName);
+    dStr := 'projects.db';
 
-  PrepareDataBase(Path);
+    if not FileExists(Path + 'config.ini') then
+    begin
+      Path    := GetCurrentDir;
+      dataStr := dStr;
+      if not FileExists(Path + 'config.ini') then
+      begin
+        Application.MessageBox(PChar(
+        'no access to "config.ini", use default data file.'),PChar(
+        'Error'),MB_OK);
+      end else
+      begin
+        appINI  := TIniFile.Create(Path + 'config.ini');
+        dataStr := appINI.ReadString('common','ProjectFile',dStr);
+      end;
+    end else
+    begin
+      appINI  := TIniFile.Create(Path + 'config.ini');
+      dataStr := appIni.ReadString('common','ProjectFile',dStr);
+    end;
 
-  // read database
-  Stmt := DB.Prepare('SELECT * FROM customvariables');
-  Stmt.Step;
+    projectsDB := TSQLite3Database.Create;
+    projectsDB.Open(dataStr);
+    projectsDBcreate;
 
-  if Stmt.ColumnCount > 0 then
-  begin
-    rows := TypesGrid.RowCount-1;
+    projectCount := 0;
+    Stmt := projectsDB.Prepare('SELECT * FROM data');
     while Stmt.Step = SQLITE_ROW do
     begin
-      TypesGrid.Cells[2,rows] := Stmt.ColumnText(1);
-      TypesGrid.Cells[1,rows] := Stmt.ColumnText(2);
+      inc(projectCount);
+    end;
 
-      inc(rows);
-      TypesGrid.RowCount := rows;
+    if projectCount < 1 then
+    begin
+      projectCount := 0;
+      AddNewProject(projectsGrid.RowCount);
+    end else
+    begin
+      projectCount := 0;
+      Stmt := projectsDB.Prepare('SELECT * FROM data');
+      while Stmt.Step = SQLITE_ROW do
+      begin
+        projectDataField[projectCount,0] := Stmt.ColumnText(1);
+        projectDataField[projectCount,1] := Stmt.ColumnText(2);
+        inc(projectCount);
+      end;
+
+      projectsGrid.RowCount := projectCount;
+      projectFocused := true;
+    end;
+
+    SelectProject(1);
+    ScrollBox22.Visible := true;
+
+    DB         := TSQLite3Database.Create;
+
+(*
+    PrepareDataBase(dataStr);
+
+
+    // read database
+    Stmt := DB.Prepare('SELECT * FROM customvariables');
+    Stmt.Step;
+
+    if Stmt.ColumnCount > 0 then
+    begin
+      rows := TypesGrid.RowCount-1;
+      while Stmt.Step = SQLITE_ROW do
+      begin
+        TypesGrid.Cells[2,rows] := Stmt.ColumnText(1);
+        TypesGrid.Cells[1,rows] := Stmt.ColumnText(2);
+
+        inc(rows);
+        TypesGrid.RowCount := rows;
+      end;
+    end;
+*)
+
+    Screen.Cursor := cursorOld;
+  except
+    on E: Exception do
+    begin
+      Application.MessageBox(PChar(
+      'Error:' + #13#10 + E.Message),PChar(
+      'Exception'),MB_OK);
+      Close;
+      Application.Terminate;
     end;
   end;
-
-  Screen.Cursor := cursorOld;
 end;
 
 procedure TForm1.PackTableClick(Sender: TObject);
@@ -513,9 +743,12 @@ end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
-  ApplicationBalloonHint.Free;
+//  inspCat.Clear;
+//  inspCat.Free;
+
   Stmt.Free;
   DB.Free;
+  projectsDB.Free;
 end;
 
 procedure TForm1.ZipTableClick(Sender: TObject);
@@ -774,7 +1007,7 @@ begin
   end;
 
   if Length(Trim(TypesGrid.Cells[1,1])) < 1 then
-  DeleteRow(1);
+  DeleteRow(TypesGrid,1);
 
   Stmt := DB.Prepare('INSERT INTO customvariables   (' +
   'id,varid,name,desc,ndeu,ddeu,nfra,dfra,nesp,desp, ' +
@@ -929,7 +1162,12 @@ begin
   varEnumListBox.MoveSelectedDown;
 end;
 
-procedure TForm1.editOnEnter(Sender: TObject); begin (Sender as TEdit).Color := clYellow; end;
+procedure TForm1.editOnEnter(Sender: TObject);
+begin
+  (Sender as TEdit).Color := clYellow;
+  projectFocused := false;
+  projectsGrid.Repaint;
+end;
 procedure TForm1.editOnExit (Sender: TObject); begin (Sender as TEdit).Color := clWhite;  end;
 procedure TForm1.editOnKeyPress(Sender: TObject; var Key: Char);
 begin
@@ -1109,15 +1347,6 @@ begin
 end;
 
 
-procedure TForm1.HintTimerTimer(Sender: TObject);
-begin
-  if ApplicationBalloonHint.Enabled then
-  begin
-    ApplicationBalloonHint.HideHint;
-    HintTimer.Enabled := false;
-  end;
-end;
-
 procedure TForm1.JvAppEvents1Hint(Sender: TObject);
 begin
   JvBalloonHint1.UseBalloonAsApplicationHint := true;
@@ -1179,37 +1408,70 @@ procedure TForm1.projectsGridDrawCell(
 var
   aCanvas: TCanvas;
 begin
-  if ARow >= 0 then
+  aCanvas := (Sender as TJvStringGrid).Canvas;
+
+  if (gdFocused in State) and (projectFocused = true) then
   begin
-    aCanvas := (Sender as TJvStringGrid).Canvas;
-
-    if gdFocused in State then
-    aCanvas.Brush.Color := clBlue else
-    aCanvas.Brush.Color := clWhite;
-
+    aCanvas.Brush.Color := clBlue;
     aCanvas.FillRect(Rect);
-    ImageList1.Draw(aCanvas,Rect.Left,Rect.Top+4,0);
 
-    if gdFocused in State then
-    aCanvas.Font.Color := clYellow else
+    aCanvas.Font.Color := clYellow;
+    aCanvas.Font.Size  := 11;
+    aCanvas.Font.Style := [fsBold];
+    aCanvas.TextOut(Rect.Left+42,Rect.Top+4,projectDataField[ARow,0]);
+
+    aCanvas.Font.Color := clWhite;
+    aCanvas.Font.Size  := 9;
+    aCanvas.Font.Style := [];
+    aCanvas.TextOut(Rect.Left+42,Rect.Top+23,projectDataField[ARow,1]);
+  end else
+  if (gdSelected in State) then
+  begin
+    aCanvas.Brush.Color := RGB(128,255,128);
+    aCanvas.FillRect(Rect);
+
     aCanvas.Font.Color := clBlack;
     aCanvas.Font.Size  := 11;
     aCanvas.Font.Style := [fsBold];
-    aCanvas.TextOut(Rect.Left+42,Rect.Top+4,'Project ' + IntToStr(ARow+1));
+    aCanvas.TextOut(Rect.Left+42,Rect.Top+4,projectDataField[ARow,0]);
 
-    if gdFocused in State then
-    aCanvas.Font.Color := clWhite else
     aCanvas.Font.Color := clGray;
     aCanvas.Font.Size  := 9;
     aCanvas.Font.Style := [];
-    aCanvas.TextOut(Rect.Left+42,Rect.Top+23,'C:\Example\test');
+    aCanvas.TextOut(Rect.Left+42,Rect.Top+23,projectDataField[ARow,1]);
+  end else
+  begin
+    aCanvas.Brush.Color := clWhite;
+    aCanvas.FillRect(Rect);
+
+    aCanvas.Font.Color := clBlack;
+    aCanvas.Font.Size  := 11;
+    aCanvas.Font.Style := [fsBold];
+    aCanvas.TextOut(Rect.Left+42,Rect.Top+4,projectDataField[ARow,0]);
+
+    aCanvas.Font.Color := clGray;
+    aCanvas.Font.Size  := 9;
+    aCanvas.Font.Style := [];
+    aCanvas.TextOut(Rect.Left+42,Rect.Top+23,projectDataField[ARow,1]);
   end;
+
+  ImageList1.Draw(aCanvas,Rect.Left,Rect.Top+4,0);
 end;
 
 procedure TForm1.projectPageControlChange(Sender: TObject);
 var
   i: Integer;
 begin
+  if TPageControl(Sender).ActivePage = propertiesTabSheet then
+  begin
+    if (inspCat = nil) or (not Assigned(inspCat)) then
+    begin
+      InspCat := TJvInspectorCustomCategoryItem.Create(JvInspector1.Root, nil);
+      InspCat.DisplayName := 'Inspector Settings';
+    end;
+  end;
+  exit;
+
   for i := 0 to cvPageControl.PageCount - 1 do
   cvPageControl.Pages[i].TabVisible := false;
 
@@ -1243,6 +1505,331 @@ procedure TForm1.cvPageControlChange(Sender: TObject);
 begin
   if cvPageControl.ActivePageIndex = 1 then
      cvPageControl.Enabled   := true;
+end;
+
+procedure TForm1.OpenexistingProject1Click(Sender: TObject);
+var
+  rows: Integer;
+  oldCursor: TCursor;
+begin
+  if not DBOpenDialog.Execute then
+  begin
+    Application.MessageBox(  PChar(
+    'something went wrong during open database.'),PChar(
+    'Warning'),MB_OK);
+    exit;
+  end;
+
+  oldCursor := Screen.Cursor;
+  Screen.Cursor := crHourGlass;
+
+  projectsDB.Close;
+  projectsDB.Open(DBOpenDialog.FileName);
+
+  Stmt := projectsDB.Prepare('SELECT * FROM data');
+  Stmt.Step;
+  if Length(Trim(Stmt.ColumnText(2))) < 1 then
+  begin
+    if Application.MessageBox(  PChar(
+    'something went wrong during read database.' + #13#10 +
+    'proberly no records.'                       + #13#10 +
+    'would you like create the project DB ?'),PChar(
+    'Warning'),MB_YESNO) = ID_NO then exit;
+
+    projectsDBcreate;
+
+    projectEdit1.Text := 'Unknow Name';
+    projectEdit2.Text := GetCurrentDir;
+    projectEdit3.Text := 'Project Title';
+    projectEdit4.Text := '';
+    projectEdit5.Text := '1.0.0';
+    projectEdit6.Text := 'Copyright (c) 2023';
+
+    Stmt := projectsDB.Prepare('INSERT INTO data (' +
+    'id,name,path,title,author,version,copyright) VALUES ' +
+    '(?,?,?,?,?,?,?)');
+    Stmt.BindInt ( 1, rows);
+    Stmt.BindText( 2, projectEdit1.Text);  // project name
+    Stmt.BindText( 3, projectEdit2.Text);  // path
+    Stmt.BindText( 4, projectEdit3.Text);  // title
+    Stmt.BindText( 5, projectEdit4.Text);  // author
+    Stmt.BindText( 6, projectEdit5.Text);  // version
+    Stmt.BindText( 7, projectEdit6.Text);  // copyright note
+    Stmt.Step;
+
+    projectDataField[projectCount+1,0] := projectEdit1.Text;
+    projectDataField[projectCount+1,1] := LeftStr(GetCurrentDir,20) + '...';
+
+    inc(projectCount);
+    ScrollBox22.Visible := true;
+  end else
+  begin
+    rows := projectsGrid.RowCount + 1;
+
+    projectDataField[projectCount,0] := Stmt.ColumnText(2);
+    projectDataField[projectCount,1] := Stmt.ColumnText(3);
+  end;
+
+  Screen.Cursor := oldCursor;
+end;
+
+procedure TForm1.ShowCellHint(AGrid: TJvStringGrid; x,y: Integer);
+var
+  ACol, ARow: Integer;
+begin
+  if not AGrid.ShowHint then
+         AGrid.ShowHint := true;
+
+  AGrid.MouseToCell(X,Y,ACol,ARow);
+
+  if (ARow > -1) then
+  begin
+    JvBalloonHint1.DefaultHeader := 'Project: ' +
+    projectDataField[ARow,0]; AGrid.Hint :=
+    projectDataField[ARow,1];
+  end else
+  begin
+    Application.CancelHint;
+  end;
+end;
+
+procedure TForm1.CreatenewProject1Click(Sender: TObject);
+var
+  rows: Integer;
+begin
+  rows :=
+  projectsGrid.RowCount ;  inc(rows);
+  projectsGrid.RowCount := rows;
+
+  inc(projectCount);
+  AddNewProject(projectCount);
+
+  (*ShowMessage('new: ' + inttostr(projectCount));
+  projectDataField[projectCount,0] := 'Project_A' + inttostr(projectCount);
+  projectDataField[projectCount,1] := 'C:\' + inttostr(projectCount);
+
+  projectCount := projectCount + 1;*)
+end;
+
+procedure TForm1.projectsGridMouseMove(
+  Sender: TObject;
+  Shift : TShiftState;
+  X, Y  : Integer);
+var
+  Acol, arow: Integer;
+begin
+  TJvStringGrid(Sender).MouseToCell(X,Y,ACol,ARow);
+  label44.Caption := inttostr(acol) + ' : ' + inttostr(arow);
+  ShowCellHint(TJvStringGrid(Sender),x,y);
+end;
+
+procedure TForm1.projectsGridMouseEnter(Sender: TObject);
+begin
+  projectHeader := JvBalloonHint1.DefaultHeader;
+end;
+
+procedure TForm1.projectsGridMouseLeave(Sender: TObject);
+begin
+  JvBalloonHint1.DefaultHeader := projectHeader;
+end;
+
+procedure TForm1.Button30Click(Sender: TObject);
+var
+  htmlForm: TForm;
+  htmlButton: TButton;
+begin
+  htmlForm := TForm.Create(Application);
+  htmlForm.Top  := 100;
+  htmlForm.Left := 100;
+  htmlForm.Width := 300;
+  htmlForm.Height := 300;
+
+  htmlButton := TButton.Create(htmlForm);
+  htmlButton.Parent := htmlForm;
+  htmlButton.Top := 20;
+  htmlButton.Left := 20;
+  htmlButton.Width := 100;
+  htmlButton.Height := 25;
+  htmlButton.Caption := 'test';
+  htmlButton.Show;
+
+  JvFormToHtml1.FormToHtml(htmlForm,'test.html');
+end;
+
+function TForm1.JvAppEvents1Help(
+  Command     : Word;
+  Data        : Integer;
+  var CallHelp: Boolean): Boolean;
+  var
+  helpWindow  : THandle;
+  helpFile    : String;
+begin
+  // make sure, VCL does not activate WinHelp
+  CallHelp := false;
+  result := true;
+  try
+    helpFile := Trim(self.HelpFile);
+    if (Length(helpFile) < 3)
+    or (FileExists(helpFile) = false) then
+    begin
+      Application.MessageBox(PChar(
+      'Help file: "' + helpFile + '"' + #13#10 +
+      'could not be found/open !'),PChar('Warning'),MB_OK);
+      result := false;
+      exit;
+    end;
+    if Command in [HELP_CONTEXT,HELP_CONTEXTPOPUP] then
+    begin
+      // ordinary context jump
+      helpWindow := HtmlHelp(Application.Handle,
+      PChar(helpFile),
+      HH_DISPLAY_TOC, data);
+    end;
+    if Command = HELP_KEY then
+    begin
+      // Keyword lookup
+      helpWindow := HtmlHelp(Application.Handle,
+      PChar(helpFile),
+      HH_DISPLAY_INDEX, data);
+    end else
+    if Command = HELP_QUIT then
+    begin
+      // Application quits -> close all its help files
+      helpWindow := HtmlHelp(Application.Handle, nil,
+      HH_CLOSE_ALL, 0);
+    end else
+    begin
+      // Any other command -> display table of contents
+      helpWindow := HtmlHelp(Application.Handle,
+      PChar(helpFile),
+      HH_HELP_FINDER, 0);
+    end;
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Help file Exception in Application:' + #13#10 +
+      E.Message);
+    end;
+  end;
+end;
+
+procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+  caller: Boolean;
+begin
+  if key = VK_F1 then
+  JvAppEvents1Help(HELP_CONTEXT or HELP_CONTEXTPOPUP,0,caller);
+end;
+
+procedure TForm1.htmlDesignPanelPaint(Sender: TObject);
+begin
+  with htmlDesignPanel do
+    DesignPaintGrid(Canvas, ClientRect, Color);
+end;
+
+procedure TForm1.projectsGridSelectCell(
+  Sender       : TObject;
+  ACol, ARow   : Integer;
+  var CanSelect: Boolean);
+begin
+  if projectDataModified then
+  begin
+    SaveProject;
+    projectsGridClick(Sender);
+    projectDataModified := false;
+  end;
+end;
+
+procedure TForm1.projectsGridClick(Sender: TObject);
+begin
+  projectFocused := true;
+  SelectProject(projectsGrid.Row+1);
+  projectsGrid.Repaint;
+end;
+
+procedure TForm1.UpdateProjectField(
+  field    : String;
+  text     : TObject;
+  var key  : Char;
+  nextFocus: TObject);
+  var
+  fieldStr : String;
+begin
+  if (text is TEdit) then fieldStr := TEdit(text).Text else
+  if (text is TMemo) then fieldStr := TMemo(text).Text;
+
+  if (key = #10) or (key = #13) then
+  begin
+    Stmt := projectsDB.Prepare('UPDATE data SET ' +
+    field + ' = "' + fieldStr + '" WHERE id = ' +
+    IntToStr(projectsGrid.Row + 1));
+    Stmt.Step;
+    SelectProject(projectsGrid.Row+1);
+
+    if (nextFocus is TEdit) then TEdit(nextFocus).SetFocus else
+    if (nextFocus is TMemo) then TMemo(nextFocus).SetFocus;
+    
+    key := #0;
+  end else
+  if not (key in ['a'..'z','A'..'Z','0'..'9','_',' ',Chr(127),Chr($8)]) then
+  key := #0;
+end;
+
+procedure TForm1.projectEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  projectDataModified := true;
+  UpdateProjectField('name',
+  projectEdit1,key,
+  projectEdit2);
+end;
+
+procedure TForm1.projectEdit2KeyPress(Sender: TObject; var Key: Char);
+begin
+  projectDataModified := true;
+  UpdateProjectField('path',
+  projectEdit2,key,
+  projectEdit3);
+end;
+
+procedure TForm1.projectEdit3KeyPress(Sender: TObject; var Key: Char);
+begin
+  projectDataModified := true;
+  UpdateProjectField('title',
+  projectEdit3,key,
+  projectEdit4);
+end;
+
+procedure TForm1.projectEdit4KeyPress(Sender: TObject; var Key: Char);
+begin
+  projectDataModified := true;
+  UpdateProjectField('author',
+  projectEdit4,key,
+  projectEdit5);
+end;
+
+procedure TForm1.projectEdit5KeyPress(Sender: TObject; var Key: Char);
+begin
+  projectDataModified := true;
+  UpdateProjectField('version',
+  projectEdit5,key,
+  projectEdit6);
+end;
+
+procedure TForm1.projectEdit6KeyPress(Sender: TObject; var Key: Char);
+begin
+  projectDataModified := true;
+  UpdateProjectField('copyright',
+  projectEdit6,key,
+  projectEdit7);
+end;
+
+procedure TForm1.projectEdit7KeyPress(Sender: TObject; var Key: Char);
+begin
+  projectDataModified := true;
+  UpdateProjectField('summary',
+  projectEdit7,key,
+  projectEdit8);
 end;
 
 end.

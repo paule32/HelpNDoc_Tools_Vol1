@@ -5,7 +5,8 @@ uses
   CustomVariablesForm in 'CustomVariablesForm.pas' {Form1},
   About in 'About.pas' {AboutDlg},
   Preferences in 'Preferences.pas' {PreferDialog},
-  MyHintWindow in 'MyHintWindow.pas';
+  MyHintWindow in 'MyHintWindow.pas',
+  HtmHelp in 'DEU\HtmHelp.pas';
 
 {$R *.res}
 
